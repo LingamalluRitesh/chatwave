@@ -986,22 +986,6 @@ function setupRealtime() {
     const isTargetChat = (activeGroupId && data.group_id === activeGroupId) || (activeContactId && data.from_id === activeContactId);
     if (isTargetChat) showTypingBanner(data.name);
   })
-  .on('broadcast', { event: 'instant_msg' }, payload => {
-    const msg = payload.payload;
-    if (!msg || !me || msg.from_id === me.id) return;
-    const isTargetChat = (activeGroupId && msg.group_id === activeGroupId) || (activeContactId && (msg.from_id === activeContactId || msg.to_id === activeContactId));
-    if (isTargetChat) {
-      appendMessageToUI(msg);
-    } else {
-      const key = msg.group_id || msg.from_id;
-      unreadMap[key] = (unreadMap[key] || 0) + 1;
-    }
-    triggerDesktopNotification(
-      msg.from_name || 'ChatWave Message',
-      (msg.content || '[' + msg.type + ']').substring(0, 80)
-    );
-    renderChatList();
-  })
   .on('presence', { event: 'sync' }, () => {
     const state = realtimeChannel.presenceState();
     onlineUserIds.clear();
@@ -1276,9 +1260,7 @@ function handleInputKey(e) {
 
 async function pushMsg(data) {
   if (!me || (!activeGroupId && !activeContactId)) return;
-  const tempId = 'temp_' + Date.now() + '_' + Math.random().toString(36).substring(2,6);
   const msg = {
-    id: tempId,
     from_id: me.id,
     from_name: me.name,
     to_id: activeGroupId ? null : activeContactId,
@@ -1289,54 +1271,17 @@ async function pushMsg(data) {
     file_name: data.file_name || null,
     reply_to: replyMsg ? {id:replyMsg.id, name:replyMsg.from_name, text:replyMsg.content} : null,
     reactions: [],
-    status: 'sent',
-    created_at: new Date().toISOString()
+    status: 'sent'
   };
   replyMsg = null;
   document.getElementById('reply-preview').classList.add('hidden');
 
-  // 1. OPTIMISTIC INSTANT SENDER UI (0ms)
-  appendMessageToUI(msg);
-  renderChatList();
+  const { data: inserted, error } = await sb.from('cw_messages').insert(msg).select().single();
+  if (error) { toast('Failed to send: ' + error.message, 'error'); return; }
 
-  // 2. INSTANT WEBSOCKET BROADCAST TO RECIPIENT (<30ms)
-  if (realtimeChannel) {
-    realtimeChannel.send({
-      type: 'broadcast',
-      event: 'instant_msg',
-      payload: msg
-    });
-  }
-
-  // 3. Background Database Insert
-  const { data: inserted, error } = await sb.from('cw_messages').insert({
-    from_id: msg.from_id,
-    from_name: msg.from_name,
-    to_id: msg.to_id,
-    group_id: msg.group_id,
-    type: msg.type,
-    content: msg.content,
-    url: msg.url,
-    file_name: msg.file_name,
-    reply_to: msg.reply_to,
-    reactions: [],
-    status: 'sent'
-  }).select().single();
-
-  if (error) {
-    toast('Failed to send: ' + error.message, 'error');
-    document.getElementById(`m_${tempId}`)?.remove();
-    return;
-  }
-
-  // Update DOM Element ID to permanent Supabase UUID
   if (inserted) {
-    const el = document.getElementById(`m_${tempId}`);
-    if (el) {
-      el.id = `m_${inserted.id}`;
-      el.ondblclick = () => quickReact(inserted.id);
-      el.oncontextmenu = (e) => showCtx(e, inserted.id, inserted.content || '');
-    }
+    appendMessageToUI(inserted);
+    renderChatList();
   }
 }
 
