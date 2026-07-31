@@ -2,8 +2,15 @@
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ChatWave – Messaging App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#111b21" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="ChatWave" />
+  <title>ChatWave – Mobile Messaging App</title>
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/1384/1384055.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <!-- Supabase JS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -67,12 +74,15 @@
       --unread: #25d366;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
+    html, body {
       font-family: var(--font);
       background: var(--bg-gradient);
       color: var(--text-primary);
       height: 100vh;
+      height: 100dvh;
       overflow: hidden;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
     }
     button { background: none; border: none; cursor: pointer; font-family: inherit; }
     input { font-family: inherit; outline: none; border: none; background: none; color: var(--text-primary); width: 100%; }
@@ -473,6 +483,9 @@
         <img id="my-dp" class="hidden" alt="" />
       </div>
       <span id="sidebar-name" style="font-weight:600;font-size:15px;flex:1"></span>
+      <button class="header-icon-btn" id="install-pwa-btn" onclick="installPWA()" title="Install App on Phone">
+        📱
+      </button>
       <button class="header-icon-btn" id="notif-btn" onclick="enableNotifications()" title="Enable Laptop Desktop Notifications">
         <svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" fill="currentColor"/></svg>
       </button>
@@ -1954,6 +1967,34 @@ function getPreview(msg) {
 function scrollBottom() { const a=document.getElementById('messages-area'); if(a) a.scrollTop=a.scrollHeight; }
 function showEmpty() { document.getElementById('empty-state').classList.remove('hidden'); document.getElementById('chat-view').style.display='none'; }
 function goBack() { document.getElementById('sidebar').classList.remove('hide'); document.getElementById('back-btn').style.display='none'; showEmpty(); }
+
+// ---- PWA Mobile Installation ----
+let deferredPrompt = null;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  const btn = document.getElementById('install-pwa-btn');
+  if (btn) btn.style.display = 'flex';
+});
+
+async function installPWA() {
+  if (!deferredPrompt) {
+    toast('📱 To install: Open Chrome/Safari menu and tap "Add to Home Screen"', 'info');
+    return;
+  }
+  deferredPrompt.prompt();
+  const { outcome } = await deferredPrompt.userChoice;
+  if (outcome === 'accepted') {
+    toast('ChatWave App Installed! 🎉', 'success');
+  }
+  deferredPrompt = null;
+}
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(err => console.log('SW registration error:', err));
+  });
+}
 
 // ---- Boot ----
 document.addEventListener('DOMContentLoaded', () => {
