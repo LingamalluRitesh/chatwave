@@ -1061,32 +1061,31 @@ async function handleIncomingMsg(payload) {
   const msg = payload.new;
   if (!me || !msg) return;
 
+  // Ignore own sent messages over Realtime (pushMsg already renders them optimistically)
+  if (msg.from_id === me.id) return;
+
   if (msg.group_id && !allGroups.some(g => g.id === msg.group_id)) {
     await loadAllGroups();
   }
 
-  const forMe = (msg.to_id === me.id) || (msg.from_id === me.id) || (msg.group_id && isMyGroup(msg.group_id));
+  const forMe = (msg.to_id === me.id) || (msg.group_id && isMyGroup(msg.group_id));
   if (!forMe) return;
 
-  const isCurrentChat = (activeGroupId && msg.group_id === activeGroupId) || (activeContactId && (msg.from_id === activeContactId || msg.to_id === activeContactId));
+  const isCurrentChat = (activeGroupId && msg.group_id === activeGroupId) || (activeContactId && msg.from_id === activeContactId);
   if (isCurrentChat) {
     appendMessageToUI(msg);
-    if (msg.from_id !== me.id) {
-      await sb.from('cw_messages').update({status:'read'}).eq('id', msg.id);
-    }
-  } else if (msg.from_id !== me.id) {
+    await sb.from('cw_messages').update({status:'read'}).eq('id', msg.id);
+  } else {
     const key = msg.group_id || msg.from_id;
     unreadMap[key] = (unreadMap[key] || 0) + 1;
     const sender = allUsers.find(u => u.id === msg.from_id);
     toast(`💬 ${sender?.name||msg.from_name||'Someone'}: ${(msg.content||'').substring(0,40)}`, 'info');
   }
 
-  if (msg.from_id !== me.id) {
-    triggerDesktopNotification(
-      msg.from_name || 'ChatWave Message',
-      (msg.content || '[' + msg.type + ']').substring(0, 80)
-    );
-  }
+  triggerDesktopNotification(
+    msg.from_name || 'ChatWave Message',
+    (msg.content || '[' + msg.type + ']').substring(0, 80)
+  );
 
   renderChatList();
 }
