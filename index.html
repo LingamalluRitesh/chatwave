@@ -911,6 +911,8 @@ function doLogout() {
 }
 
 // ---- App Start ----
+let lastPollTs = null;
+
 async function startApp() {
   document.getElementById('auth-screen').classList.add('hidden');
   document.getElementById('app').classList.remove('hidden');
@@ -920,6 +922,7 @@ async function startApp() {
   initDesktopNotifications();
   broadcastPresence();
   setInterval(broadcastPresence, 4000);
+  setInterval(pollMessages, 2000); // 2-second Fast Polling Fallback
 }
 
 function renderSidebar() {
@@ -930,6 +933,37 @@ function renderSidebar() {
   const myDp = document.getElementById('my-dp');
   if (me.avatar_url) { myDp.src = me.avatar_url; myDp.classList.remove('hidden'); } else myDp.classList.add('hidden');
   renderChatList();
+}
+
+async function pollMessages() {
+  if (!me || (!activeGroupId && !activeContactId)) return;
+  let query = sb.from('cw_messages').select('*');
+  if (activeGroupId) {
+    query = query.eq('group_id', activeGroupId);
+  } else if (activeContactId) {
+    query = query.or(`and(from_id.eq.${me.id},to_id.eq.${activeContactId}),and(from_id.eq.${activeContactId},to_id.eq.${me.id})`);
+  }
+  if (lastPollTs) {
+    query = query.gt('created_at', lastPollTs);
+  }
+  const { data: newMsgs } = await query.order('created_at', { ascending: true });
+  if (newMsgs && newMsgs.length > 0) {
+    newMsgs.forEach(msg => {
+      if (!lastPollTs || new Date(msg.created_at) > new Date(lastPollTs)) {
+        lastPollTs = msg.created_at;
+      }
+      if (!document.getElementById(`m_${msg.id}`)) {
+        appendMessageToUI(msg);
+        if (msg.from_id !== me.id) {
+          triggerDesktopNotification(
+            msg.from_name || 'ChatWave Message',
+            (msg.content || '[' + msg.type + ']').substring(0, 80)
+          );
+        }
+      }
+    });
+    renderChatList();
+  }
 }
 
 // ---- Realtime & Global Presence ----
@@ -1200,6 +1234,9 @@ async function renderMessages() {
   if (!msgs.length) {
     area.innerHTML = `<div style="text-align:center;color:var(--text-muted);padding:40px;font-size:14px">No messages yet. Say hi! 👋</div>`;
     return;
+  }
+  if (msgs.length > 0) {
+    lastPollTs = msgs[msgs.length - 1].created_at;
   }
   area.innerHTML = '';
   msgs.forEach(msg => appendMessageToUI(msg));
