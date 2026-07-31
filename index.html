@@ -318,8 +318,8 @@
     </div>
 
     <div id="chat-view" style="display:none;flex-direction:column;flex:1;height:100%;">
-      <div class="chat-header">
-        <button class="header-icon-btn" id="back-btn" onclick="goBack()" style="display:none">
+      <div class="chat-header" id="chat-header-bar" style="cursor:pointer" onclick="handleHeaderClick()">
+        <button class="header-icon-btn" id="back-btn" onclick="event.stopPropagation();goBack()" style="display:none">
           <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="currentColor"/></svg>
         </button>
         <div class="chat-header-avatar" id="chat-header-avatar">
@@ -331,7 +331,10 @@
           <div id="chat-header-status" style="font-size:12px;color:var(--text-muted)"></div>
         </div>
         <div class="chat-header-actions">
-          <button class="header-icon-btn" id="call-btn" onclick="toast('Calling... 📞','info')">
+          <button class="header-icon-btn" id="group-info-btn" onclick="event.stopPropagation();openGroupInfoModal()" title="Group Info" style="display:none">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" fill="currentColor"/></svg>
+          </button>
+          <button class="header-icon-btn" id="call-btn" onclick="event.stopPropagation();toast('Calling... 📞','info')">
             <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" fill="currentColor"/></svg>
           </button>
         </div>
@@ -391,6 +394,46 @@
         <button class="auth-btn" style="background:var(--bg-tertiary);color:var(--text-primary);box-shadow:none" onclick="backGroupStep1()">← Back</button>
         <button class="auth-btn" onclick="finalCreateGroup()">Create Group 🎉</button>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- Group Info Modal -->
+<div class="modal-overlay hidden" id="group-info-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Group Info</h3>
+      <button class="close-modal-btn" onclick="closeGroupInfoModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div style="text-align:center;margin-bottom:16px">
+        <div class="chat-avatar" id="ginfo-avatar" style="width:72px;height:72px;font-size:28px;margin:0 auto 10px"></div>
+        <h2 id="ginfo-name" style="font-size:20px;font-weight:700"></h2>
+        <p id="ginfo-desc" style="font-size:13px;color:var(--text-muted);margin-top:4px"></p>
+      </div>
+      <div style="border-top:1px solid var(--border);padding-top:14px;margin-top:14px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+          <span style="font-size:12px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.6px">Members (<span id="ginfo-count">0</span>)</span>
+          <button class="demo-btn" onclick="openAddMemberModal()" style="font-size:12px">➕ Add Member</button>
+        </div>
+        <div id="ginfo-member-list" style="max-height:220px;overflow-y:auto;display:flex;flex-direction:column;gap:8px"></div>
+      </div>
+      <div style="border-top:1px solid var(--border);padding-top:16px;margin-top:16px">
+        <button class="auth-btn" style="background:linear-gradient(135deg,#dc2626,#ef4444);box-shadow:none" onclick="leaveCurrentGroup()">🚪 Leave Group</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add Member Modal -->
+<div class="modal-overlay hidden" id="add-member-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Add Members to Group</h3>
+      <button class="close-modal-btn" onclick="closeAddMemberModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div id="add-member-list" style="max-height:300px;overflow-y:auto;display:flex;flex-direction:column;gap:8px"></div>
     </div>
   </div>
 </div>
@@ -492,21 +535,29 @@ function isOnline(uid) {
   try { const t = parseInt(localStorage.getItem('cw_pres_' + uid)||'0'); return Date.now()-t < 9000; } catch(_){ return false; }
 }
 
+// ---- Group Loading ----
+async function loadAllGroups() {
+  const { data: groups } = await sb.from('cw_groups').select('*');
+  if (!groups) { allGroups = []; return; }
+  const { data: members } = await sb.from('cw_group_members').select('*');
+  groups.forEach(g => {
+    g._members = (members || []).filter(m => m.group_id === g.id).map(m => m.user_id);
+  });
+  allGroups = groups;
+}
+
 // ---- Startup ----
 async function boot() {
   setLoading('Connecting to Supabase...');
   applyTheme(getTheme());
   const session = loadSession();
-  // Load all users (for chat list)
   const { data: users, error } = await sb.from('cw_users').select('id,username,name,phone,about,avatar_url,color').order('name');
   if (error) {
     setLoading('❌ Could not reach database. Check your internet connection.');
     return;
   }
   allUsers = users || [];
-  // Load all groups
-  const { data: groups } = await sb.from('cw_groups').select('*');
-  allGroups = groups || [];
+  await loadAllGroups();
 
   hideLoading();
   if (session) {
@@ -531,7 +582,7 @@ async function doLogin() {
   const hash = simpleHash(password);
   const { data, error } = await sb.from('cw_users').select('*').eq('username', username).eq('password_hash', hash).single();
   setBtnLoading('login-btn', false);
-  if (error || !data) { showAuthErr('login-error', 'Wrong username or password. Try alice / alice123'); return; }
+  if (error || !data) { showAuthErr('login-error', 'Wrong username or password.'); return; }
   document.getElementById('login-error').classList.add('hidden');
   saveSession(data);
   me = data;
@@ -574,12 +625,6 @@ async function doRegister() {
   toast('Account created! Welcome, ' + name + '! 🎉', 'success');
 }
 
-function quickLogin(u, p) {
-  document.getElementById('login-username').value = u;
-  document.getElementById('login-password').value = p;
-  doLogin();
-}
-
 function doLogout() {
   if (!confirm('Log out?')) return;
   clearSession();
@@ -594,9 +639,10 @@ function doLogout() {
 }
 
 // ---- App Start ----
-function startApp() {
+async function startApp() {
   document.getElementById('auth-screen').classList.add('hidden');
   document.getElementById('app').classList.remove('hidden');
+  await loadAllGroups();
   renderSidebar();
   setupRealtime();
   broadcastPresence();
@@ -616,8 +662,10 @@ function renderSidebar() {
 // ---- Realtime ----
 function setupRealtime() {
   if (realtimeChannel) sb.removeChannel(realtimeChannel);
-  realtimeChannel = sb.channel('cw-messages')
+  realtimeChannel = sb.channel('cw-realtime')
     .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'cw_messages' }, handleIncomingMsg)
+    .on('postgres_changes', { event: '*', schema: 'public', table: 'cw_groups' }, async () => { await loadAllGroups(); renderChatList(); })
+    .on('postgres_changes', { event: '*', schema: 'public', table: 'cw_group_members' }, async () => { await loadAllGroups(); renderChatList(); if (activeGroupId) openChat(activeGroupId, 'group'); })
     .subscribe(status => {
       if (status === 'SUBSCRIBED') console.log('✅ Realtime connected');
     });
@@ -625,20 +673,16 @@ function setupRealtime() {
 
 async function handleIncomingMsg(payload) {
   const msg = payload.new;
-  if (!me || msg.from_id === me.id) return; // ignore own messages
-  // Check if this message belongs to us
+  if (!me || msg.from_id === me.id) return;
   const forMe = (msg.to_id === me.id) || (msg.group_id && isMyGroup(msg.group_id));
   if (!forMe) return;
-  // Check if this is the active chat
   const activeKey = activeGroupId || activeContactId;
   const msgKey = msg.group_id || msg.from_id;
   if (activeKey && activeKey === msgKey) {
     renderMessages();
     scrollBottom();
-    // Mark as read
     await sb.from('cw_messages').update({status:'read'}).eq('id', msg.id);
   } else {
-    // Increment unread
     unreadMap[msgKey] = (unreadMap[msgKey] || 0) + 1;
     const sender = allUsers.find(u => u.id === msg.from_id);
     toast(`💬 ${sender?.name||'Someone'}: ${(msg.content||'').substring(0,40)}`, 'info');
@@ -647,7 +691,8 @@ async function handleIncomingMsg(payload) {
 }
 
 function isMyGroup(gid) {
-  return allGroups.some(g => g.id === gid && g.members && g.members.includes(me.id));
+  const g = allGroups.find(x => x.id === gid);
+  return g && g._members && g._members.includes(me.id);
 }
 
 // ---- Chat List ----
@@ -713,16 +758,15 @@ async function openChat(id, type) {
     activeGroupId = id; activeContactId = null;
     const g = allGroups.find(x => x.id === id);
     if (!g) return;
-    updateHeader(g.name, `${g._members?.length||'?'} members`, g.avatar_url, g.color, false);
+    updateHeader(g.name, `${g._members?.length||0} members`, g.avatar_url, g.color, false, true);
     unreadMap[id] = 0;
   } else {
     activeContactId = id; activeGroupId = null;
     const c = allUsers.find(u => u.id === id);
     if (!c) return;
     const online = isOnline(id);
-    updateHeader(c.name, online ? '🟢 Online' : '⚫ Offline', c.avatar_url, c.color, true);
+    updateHeader(c.name, online ? '🟢 Online' : '⚫ Offline', c.avatar_url, c.color, true, false);
     unreadMap[id] = 0;
-    // Mark messages from this contact as read
     await sb.from('cw_messages').update({status:'read'}).eq('from_id',id).eq('to_id',me.id).neq('status','read');
   }
   document.getElementById('empty-state').classList.add('hidden');
@@ -736,7 +780,7 @@ async function openChat(id, type) {
   scrollBottom();
 }
 
-function updateHeader(name, status, avatarUrl, color, showCall) {
+function updateHeader(name, status, avatarUrl, color, showCall, isGroup) {
   document.getElementById('chat-header-name').textContent = name;
   document.getElementById('chat-header-status').textContent = status;
   document.getElementById('chat-header-initials').textContent = getInitials(name);
@@ -745,6 +789,11 @@ function updateHeader(name, status, avatarUrl, color, showCall) {
   const dp = document.getElementById('chat-header-dp');
   if (avatarUrl) { dp.src=avatarUrl; dp.classList.remove('hidden'); } else dp.classList.add('hidden');
   document.getElementById('call-btn').style.display = showCall ? '' : 'none';
+  document.getElementById('group-info-btn').style.display = isGroup ? '' : 'none';
+}
+
+function handleHeaderClick() {
+  if (activeGroupId) openGroupInfoModal();
 }
 
 // ---- Messages ----
@@ -945,13 +994,127 @@ async function finalCreateGroup() {
     name, description:desc, color:colors[Math.floor(Math.random()*colors.length)], created_by:me.id
   }).select().single();
   if (error) { toast('Failed to create group: '+error.message,'error'); return; }
-  const memberIds = [me.id, ...Array.from(groupMembers)];
+  const memberIds = Array.from(new Set([me.id, ...Array.from(groupMembers)]));
   await sb.from('cw_group_members').insert(memberIds.map(uid=>({group_id:g.id,user_id:uid})));
-  g._members = memberIds;
-  allGroups.push(g);
+  
+  await sb.from('cw_messages').insert({
+    from_id: me.id,
+    from_name: me.name,
+    group_id: g.id,
+    type: 'text',
+    content: `📢 ${me.name} created group "${name}"`
+  });
+
+  await loadAllGroups();
   closeGroupModal();
   toast(`Group "${name}" created! 🎉`,'success');
   openChat(g.id,'group');
+}
+
+// ---- Group Info Modal & Member Management ----
+function openGroupInfoModal() {
+  if (!activeGroupId) return;
+  const g = allGroups.find(x => x.id === activeGroupId);
+  if (!g) return;
+  document.getElementById('ginfo-name').textContent = g.name;
+  document.getElementById('ginfo-desc').textContent = g.description || 'No description';
+  document.getElementById('ginfo-avatar').textContent = getInitials(g.name);
+  document.getElementById('ginfo-avatar').style.background = `linear-gradient(135deg,${g.color||'#2563eb'},${lighten(g.color||'#2563eb')})`;
+  
+  const memberIds = g._members || [];
+  document.getElementById('ginfo-count').textContent = memberIds.length;
+  
+  const listEl = document.getElementById('ginfo-member-list');
+  listEl.innerHTML = memberIds.map(uid => {
+    const u = allUsers.find(x => x.id === uid) || { name: 'User', username: 'user' };
+    const isMe = uid === me.id;
+    const online = isOnline(uid);
+    return `<div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--bg-tertiary);border-radius:10px">
+      <div class="chat-avatar" style="width:36px;height:36px;font-size:13px;background:linear-gradient(135deg,${u.color||'#2563eb'},${lighten(u.color||'#2563eb')})">
+        <span>${getInitials(u.name)}</span>
+      </div>
+      <div style="flex:1">
+        <div style="font-weight:600;font-size:14px">${esc(u.name)} ${isMe?'<span style="font-size:11px;color:var(--accent)">(You)</span>':''}</div>
+        <div style="font-size:11px;color:var(--text-muted)">${online ? '🟢 Online' : '⚫ Offline'}</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('group-info-modal').classList.remove('hidden');
+}
+
+function closeGroupInfoModal() { document.getElementById('group-info-modal').classList.add('hidden'); }
+
+function openAddMemberModal() {
+  if (!activeGroupId) return;
+  const g = allGroups.find(x => x.id === activeGroupId);
+  if (!g) return;
+  const existingSet = new Set(g._members || []);
+  const nonMembers = allUsers.filter(u => !existingSet.has(u.id));
+
+  const listEl = document.getElementById('add-member-list');
+  if (!nonMembers.length) {
+    listEl.innerHTML = '<div style="text-align:center;color:var(--text-muted);padding:20px;font-size:13px">All registered users are already in this group!</div>';
+  } else {
+    listEl.innerHTML = nonMembers.map(u => `
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--bg-tertiary);border-radius:10px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div class="chat-avatar" style="width:36px;height:36px;font-size:13px;background:linear-gradient(135deg,${u.color||'#2563eb'},${lighten(u.color||'#2563eb')})">
+            <span>${getInitials(u.name)}</span>
+          </div>
+          <div>
+            <div style="font-weight:600;font-size:14px">${esc(u.name)}</div>
+            <div style="font-size:12px;color:var(--text-muted)">@${u.username}</div>
+          </div>
+        </div>
+        <button class="save-btn" onclick="addMemberToGroup('${u.id}')">➕ Add</button>
+      </div>
+    `).join('');
+  }
+  document.getElementById('add-member-modal').classList.remove('hidden');
+}
+
+function closeAddMemberModal() { document.getElementById('add-member-modal').classList.add('hidden'); }
+
+async function addMemberToGroup(userId) {
+  if (!activeGroupId) return;
+  const g = allGroups.find(x => x.id === activeGroupId);
+  if (!g) return;
+  const { error } = await sb.from('cw_group_members').insert({ group_id: activeGroupId, user_id: userId });
+  if (error) { toast('Error adding member: ' + error.message, 'error'); return; }
+  
+  const targetUser = allUsers.find(u => u.id === userId);
+  await sb.from('cw_messages').insert({
+    from_id: me.id,
+    from_name: me.name,
+    group_id: activeGroupId,
+    type: 'text',
+    content: `📢 ${me.name} added ${targetUser?.name || 'a member'} to the group`
+  });
+
+  await loadAllGroups();
+  closeAddMemberModal();
+  openGroupInfoModal();
+  toast(`Added ${targetUser?.name || 'member'} to group! 🎉`, 'success');
+}
+
+async function leaveCurrentGroup() {
+  if (!activeGroupId) return;
+  if (!confirm('Are you sure you want to leave this group?')) return;
+  await sb.from('cw_group_members').delete().eq('group_id', activeGroupId).eq('user_id', me.id);
+  await sb.from('cw_messages').insert({
+    from_id: me.id,
+    from_name: me.name,
+    group_id: activeGroupId,
+    type: 'text',
+    content: `📢 ${me.name} left the group`
+  });
+  closeGroupInfoModal();
+  activeGroupId = null;
+  await loadAllGroups();
+  showEmpty();
+  renderChatList();
+  toast('You left the group', 'info');
 }
 
 // ---- Profile ----
