@@ -523,6 +523,9 @@
           <div id="chat-header-status" style="font-size:12px;color:var(--text-muted)"></div>
         </div>
         <div class="chat-header-actions">
+          <button class="header-icon-btn" id="clear-chat-btn" onclick="event.stopPropagation();clearCurrentChat()" title="Clear Chat">
+            <svg viewBox="0 0 24 24"><path d="M15 16h4v2h-4zm0-8h7v2h-7zm0 4h5v2h-5zM3 18c0 1.1.9 2 2 2h6c1.1 0 2-.9 2-2V8H3v10zM14 5h-3l-1-1H6L5 5H2v2h12z" fill="currentColor"/></svg>
+          </button>
           <button class="header-icon-btn" id="group-info-btn" onclick="event.stopPropagation();openGroupInfoModal()" title="Group Info" style="display:none">
             <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" fill="currentColor"/></svg>
           </button>
@@ -543,8 +546,8 @@
         <span id="typing-name"></span> is typing...
       </div>
       <div class="chat-input-area">
-        <button class="action-btn" onclick="triggerFileInput('img-input')">📎</button>
-        <input type="file" id="img-input" accept="image/*" class="hidden" onchange="handleMediaFile(this)" />
+        <button class="action-btn" onclick="triggerFileInput('media-file-input')" title="Attach Image, Video, Audio or Document">📎</button>
+        <input type="file" id="media-file-input" accept="image/*,video/*,audio/*,.pdf,.doc,.docx,.txt" class="hidden" onchange="handleAnyFile(this)" />
         <div class="input-box" id="msg-input" contenteditable="true" data-placeholder="Type a message..." onkeydown="handleInputKey(event)"></div>
         <button class="action-btn" onclick="toggleEmoji()">😊</button>
         <button class="action-btn send-btn" onclick="sendText()">
@@ -698,8 +701,8 @@ function simpleHash(str) {
   return Math.abs(h).toString(16).substring(0, 10);
 }
 
-// ---- Session ----
-const SESSION_KEY = 'cw_session_v5';
+// ---- Session (Persistent across tabs/minimising until Logout) ----
+const SESSION_KEY = 'cw_session_v7';
 let me = null;
 let allUsers = [];
 let allGroups = [];
@@ -713,10 +716,10 @@ let realtimeChannel = null;
 let unreadMap = {}; // contactId/groupId -> count
 
 function loadSession() {
-  try { const s = sessionStorage.getItem(SESSION_KEY); return s ? JSON.parse(s) : null; } catch(_){ return null; }
+  try { const s = localStorage.getItem(SESSION_KEY); return s ? JSON.parse(s) : null; } catch(_){ return null; }
 }
-function saveSession(u) { me = u; try { sessionStorage.setItem(SESSION_KEY, JSON.stringify(u)); } catch(_){} }
-function clearSession() { me = null; try { sessionStorage.removeItem(SESSION_KEY); } catch(_){} }
+function saveSession(u) { me = u; try { localStorage.setItem(SESSION_KEY, JSON.stringify(u)); } catch(_){} }
+function clearSession() { me = null; try { localStorage.removeItem(SESSION_KEY); } catch(_){} }
 
 // ---- Presence via localStorage ----
 function broadcastPresence() {
@@ -748,7 +751,8 @@ async function boot() {
     setLoading('❌ Could not reach database. Check your internet connection.');
     return;
   }
-  allUsers = users || [];
+  // Filter out any old demo accounts
+  allUsers = (users || []).filter(u => u.username !== 'alice' && u.username !== 'bob' && u.username !== 'carol');
   await loadAllGroups();
 
   hideLoading();
@@ -855,12 +859,21 @@ function renderSidebar() {
 function setupRealtime() {
   if (realtimeChannel) sb.removeChannel(realtimeChannel);
   realtimeChannel = sb.channel('cw-realtime')
-    .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'cw_messages' }, handleIncomingMsg)
+    .on('postgres_changes', { event: '*', schema: 'public', table: 'cw_messages' }, handleRealtimeMsgEvent)
     .on('postgres_changes', { event: '*', schema: 'public', table: 'cw_groups' }, async () => { await loadAllGroups(); renderChatList(); })
     .on('postgres_changes', { event: '*', schema: 'public', table: 'cw_group_members' }, async () => { await loadAllGroups(); renderChatList(); if (activeGroupId) openChat(activeGroupId, 'group'); })
     .subscribe(status => {
       if (status === 'SUBSCRIBED') console.log('✅ Realtime connected');
     });
+}
+
+async function handleRealtimeMsgEvent(payload) {
+  if (payload.eventType === 'INSERT') {
+    handleIncomingMsg(payload);
+  } else if (payload.eventType === 'DELETE' || payload.eventType === 'UPDATE') {
+    if (activeGroupId || activeContactId) renderMessages();
+    renderChatList();
+  }
 }
 
 async function handleIncomingMsg(payload) {
@@ -1014,11 +1027,15 @@ async function renderMessages() {
     const dir = isOut ? 'out' : 'in';
     const tick = isOut ? (msg.status==='read'?'<span style="color:#60a5fa">✓✓</span>':'<span style="opacity:0.6">✓✓</span>') : '';
     const senderLine = !isOut && activeGroupId ? `<div class="bubble-sender">${esc(msg.from_name||'')}</div>` : '';
-    const replyLine = msg.reply_to ? `<div style="border-left:3px solid rgba(255,255,255,0.4);padding-left:8px;margin-bottom:6px;opacity:0.7;font-size:12px"><b>${esc(msg.reply_to.name||'')}</b><br>${esc(msg.reply_to.text||'')}</div>` : '';
+    const replyLine = msg.reply_to ? `<div style="border-left:3px solid var(--accent);padding:6px 10px;margin-bottom:6px;background:rgba(0,0,0,0.15);border-radius:6px;font-size:12px"><b>Replying to @${esc(msg.reply_to.name||'User')}</b><br><span style="opacity:0.85">${esc(msg.reply_to.text||'')}</span></div>` : '';
+    
     let content = '';
     if (msg.type==='text') content = `<div>${esc(msg.content||'')}</div>`;
-    else if (msg.type==='image') content = `<img src="${msg.url}" style="max-width:240px;border-radius:10px;display:block;margin-bottom:4px" onclick="viewMedia('${msg.url}')" />`;
-    else if (msg.type==='document') content = `<div style="display:flex;align-items:center;gap:8px">📄 <span>${esc(msg.file_name||'')}</span></div>`;
+    else if (msg.type==='image') content = `<img src="${msg.url}" style="max-width:260px;border-radius:12px;display:block;margin-bottom:4px;cursor:pointer" onclick="viewMedia('${msg.url}')" />`;
+    else if (msg.type==='video') content = `<video src="${msg.url}" controls style="max-width:260px;border-radius:12px;display:block;margin-bottom:4px"></video>`;
+    else if (msg.type==='audio') content = `<audio src="${msg.url}" controls style="max-width:260px;margin-bottom:4px"></audio>`;
+    else if (msg.type==='document') content = `<div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:rgba(255,255,255,0.08);border-radius:10px;margin-bottom:4px">📄 <span style="flex:1;font-weight:600;font-size:13px;word-break:break-all">${esc(msg.file_name||'Document')}</span> <a href="${msg.url}" download="${esc(msg.file_name||'file')}" style="color:var(--accent);font-weight:700;text-decoration:none">⬇ Save</a></div>`;
+    
     const reactions = Array.isArray(msg.reactions) && msg.reactions.length ? `<div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:4px">${msg.reactions.map(r=>`<span style="background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.3);border-radius:12px;padding:2px 8px;font-size:13px">${r.emoji}${r.count>1?' '+r.count:''}</span>`).join('')}</div>` : '';
     html += `
       <div class="msg-bubble ${dir}" id="m_${msg.id}" ondblclick="quickReact('${msg.id}')" oncontextmenu="showCtx(event,'${msg.id}','${esc(msg.content||'')}')">
@@ -1088,7 +1105,7 @@ function showCtx(e, msgId, text) {
     {label:'↩ Reply', fn:()=>setReply(msgId,text)},
     {label:'❤️ React', fn:()=>quickReact(msgId)},
     {label:'📋 Copy', fn:()=>{navigator.clipboard.writeText(text||'');toast('Copied!');}},
-    {label:'🗑 Delete', fn:()=>deleteMsg(msgId)},
+    {label:'🗑 Delete Message', fn:()=>deleteMsg(msgId)},
   ];
   const menu = document.createElement('div');
   menu.id='ctx-menu';
@@ -1111,7 +1128,7 @@ async function setReply(msgId, text) {
   if (!data) return;
   replyMsg = data;
   document.getElementById('reply-sender').textContent = data.from_name||'User';
-  document.getElementById('reply-text').textContent = data.content||'[media]';
+  document.getElementById('reply-text').textContent = data.content||'['+data.type+']';
   document.getElementById('reply-preview').classList.remove('hidden');
   document.getElementById('msg-input').focus();
 }
@@ -1120,15 +1137,47 @@ function clearReply() { replyMsg=null; document.getElementById('reply-preview').
 async function deleteMsg(msgId) {
   await sb.from('cw_messages').delete().eq('id',msgId).eq('from_id',me.id);
   renderMessages(); renderChatList();
+  toast('Message deleted', 'info');
 }
 
-// ---- Media ----
-function handleMediaFile(input) {
+async function clearCurrentChat() {
+  if (!activeGroupId && !activeContactId) return;
+  const targetName = activeGroupId 
+    ? allGroups.find(g => g.id === activeGroupId)?.name 
+    : allUsers.find(u => u.id === activeContactId)?.name;
+  
+  if (!confirm(`Clear all messages in chat with "${targetName||'this chat'}"?`)) return;
+
+  if (activeGroupId) {
+    await sb.from('cw_messages').delete().eq('group_id', activeGroupId);
+  } else if (activeContactId) {
+    await sb.from('cw_messages').delete()
+      .or(`and(from_id.eq.${me.id},to_id.eq.${activeContactId}),and(from_id.eq.${activeContactId},to_id.eq.${me.id})`);
+  }
+  await renderMessages();
+  renderChatList();
+  toast('Chat cleared', 'info');
+}
+
+// ---- Multi-Media Files (Images, Videos, Audio, Docs) ----
+function handleAnyFile(input) {
   const file = input.files[0]; if (!file) return;
   const reader = new FileReader();
-  reader.onload = e => pushMsg({type:'image', content:'', url:e.target.result, file_name:file.name});
+  reader.onload = e => {
+    let fileType = 'document';
+    if (file.type.startsWith('image/')) fileType = 'image';
+    else if (file.type.startsWith('video/')) fileType = 'video';
+    else if (file.type.startsWith('audio/')) fileType = 'audio';
+    
+    pushMsg({
+      type: fileType,
+      content: '',
+      url: e.target.result,
+      file_name: file.name
+    });
+  };
   reader.readAsDataURL(file);
-  input.value='';
+  input.value = '';
 }
 function triggerFileInput(id) { document.getElementById(id).click(); }
 function viewMedia(url) { window.open(url,'_blank'); }
