@@ -636,6 +636,44 @@
   </div>
 </div>
 
+<!-- Forward Message Modal -->
+<div class="modal-overlay hidden" id="forward-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>↪ Forward Message</h3>
+      <button class="close-modal-btn" onclick="closeForwardModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div style="padding:4px 0 14px">
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:6px">Message preview:</div>
+        <div id="forward-preview-box" style="padding:10px 14px;background:var(--bg-tertiary);border-left:3px solid var(--accent);border-radius:8px;font-size:13px;font-weight:500;word-break:break-all"></div>
+      </div>
+      <div style="font-size:12px;font-weight:700;color:var(--accent);text-transform:uppercase;margin-bottom:8px;letter-spacing:0.5px">Select Destination Chat</div>
+      <div id="forward-target-list" style="max-height:280px;overflow-y:auto;display:flex;flex-direction:column;gap:8px"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Message Modal -->
+<div class="modal-overlay hidden" id="edit-msg-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>✏ Edit Message</h3>
+      <button class="close-modal-btn" onclick="closeEditModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="auth-field">
+        <label>Message Text</label>
+        <textarea id="edit-msg-input" rows="4" style="width:100%;background:var(--bg-input);border:1px solid var(--border);border-radius:10px;padding:12px;font-size:14px;color:var(--text-primary);resize:vertical;font-family:inherit"></textarea>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:14px">
+        <button class="auth-btn" style="background:var(--bg-tertiary);color:var(--text-primary);box-shadow:none" onclick="closeEditModal()">Cancel</button>
+        <button class="auth-btn" onclick="saveEditedMessage()">Save Changes ✨</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Profile Drawer -->
 <div class="drawer" id="profile-drawer">
   <div class="drawer-header">
@@ -1079,22 +1117,39 @@ function isMyGroup(gid) {
   return g && g._members && g._members.includes(me.id);
 }
 
+let activeMsgsCache = {};
+let editingMsgId = null;
+let forwardingMsgId = null;
+
 // ---- Instant Message UI Appender ----
 function appendMessageToUI(msg) {
   const area = document.getElementById('messages-area');
   if (!area) return;
   if (area.innerHTML.includes('No messages yet')) area.innerHTML = '';
   
-  if (msg.id && document.getElementById(`m_${msg.id}`)) return;
+  if (msg.id) activeMsgsCache[msg.id] = msg;
+  if (msg.id && document.getElementById(`m_${msg.id}`)) {
+    const existingEl = document.getElementById(`m_${msg.id}`);
+    if (msg.edited) {
+      const textDiv = existingEl.querySelector('.bubble-text-content');
+      if (textDiv) textDiv.innerHTML = esc(msg.content || '');
+      const metaDiv = existingEl.querySelector('.bubble-meta');
+      if (metaDiv && !metaDiv.innerHTML.includes('(edited)')) {
+        metaDiv.insertAdjacentHTML('afterbegin', '<span style="font-size:10px;opacity:0.6;margin-right:4px">(edited)</span>');
+      }
+    }
+    return;
+  }
 
   const isOut = msg.from_id === me.id;
   const dir = isOut ? 'out' : 'in';
   const tick = isOut ? (msg.status==='read'?'<span style="color:#60a5fa">✓✓</span>':'<span style="opacity:0.6">✓✓</span>') : '';
   const senderLine = !isOut && activeGroupId ? `<div class="bubble-sender">${esc(msg.from_name||'')}</div>` : '';
   const replyLine = msg.reply_to ? `<div style="border-left:3px solid var(--accent);padding:6px 10px;margin-bottom:6px;background:rgba(0,0,0,0.15);border-radius:6px;font-size:12px"><b>Replying to @${esc(msg.reply_to.name||'User')}</b><br><span style="opacity:0.85">${esc(msg.reply_to.text||'')}</span></div>` : '';
-  
+  const editedTag = msg.edited ? '<span style="font-size:10px;opacity:0.6;margin-right:4px">(edited)</span>' : '';
+
   let content = '';
-  if (msg.type==='text') content = `<div>${esc(msg.content||'')}</div>`;
+  if (msg.type==='text') content = `<div class="bubble-text-content">${esc(msg.content||'')}</div>`;
   else if (msg.type==='image') content = `<img src="${msg.url}" style="max-width:260px;border-radius:12px;display:block;margin-bottom:4px;cursor:pointer" onclick="viewMedia('${msg.url}')" />`;
   else if (msg.type==='video') content = `<video src="${msg.url}" controls style="max-width:260px;border-radius:12px;display:block;margin-bottom:4px"></video>`;
   else if (msg.type==='audio') content = `<audio src="${msg.url}" controls style="max-width:260px;margin-bottom:4px"></audio>`;
@@ -1106,11 +1161,11 @@ function appendMessageToUI(msg) {
   msgEl.className = `msg-bubble ${dir}`;
   msgEl.id = `m_${msg.id||('temp_'+Date.now())}`;
   msgEl.ondblclick = () => quickReact(msg.id);
-  msgEl.oncontextmenu = (e) => showCtx(e, msg.id, msg.content||'');
+  msgEl.oncontextmenu = (e) => showCtx(e, msg.id);
   msgEl.innerHTML = `
     <div class="bubble-inner">
       ${replyLine}${senderLine}${content}
-      <div class="bubble-meta"><span class="bubble-time">${fmtTime(msg.created_at || Date.now())}</span>${tick}</div>
+      <div class="bubble-meta">${editedTag}<span class="bubble-time">${fmtTime(msg.created_at || Date.now())}</span>${tick}</div>
     </div>${reactions}`;
   
   area.appendChild(msgEl);
@@ -1285,9 +1340,8 @@ async function pushMsg(data) {
   }
 }
 
-// ---- Reactions / Context Menu ----
+// ---- Reactions & Context Menu ----
 async function quickReact(msgId) {
-  const key = activeGroupId ? `group_id.eq.${activeGroupId}` : `or(and(from_id.eq.${me.id},to_id.eq.${activeContactId}),and(from_id.eq.${activeContactId},to_id.eq.${me.id}))`;
   const {data:msgs} = await sb.from('cw_messages').select('*').eq('id',msgId).single();
   if (!msgs) return;
   const reactions = Array.isArray(msgs.reactions) ? msgs.reactions : [];
@@ -1297,22 +1351,40 @@ async function quickReact(msgId) {
   renderMessages();
 }
 
-function showCtx(e, msgId, text) {
+function showCtx(e, msgId) {
   e.preventDefault();
   document.getElementById('ctx-menu')?.remove();
+  const msg = activeMsgsCache[msgId] || null;
+  const isMine = msg && msg.from_id === me.id;
+
   const actions = [
-    {label:'↩ Reply', fn:()=>setReply(msgId,text)},
-    {label:'❤️ React', fn:()=>quickReact(msgId)},
-    {label:'📋 Copy', fn:()=>{navigator.clipboard.writeText(text||'');toast('Copied!');}},
-    {label:'🗑 Delete Message', fn:()=>deleteMsg(msgId)},
+    {label:'↩ Reply', fn:()=>setReply(msgId)},
+    {label:'↪ Forward', fn:()=>openForwardModal(msgId)},
+    {label:'📋 Copy Text', fn:()=>{
+      const text = msg?.content || '';
+      if (text) {
+        navigator.clipboard.writeText(text);
+        toast('Message copied to clipboard! 📋', 'success');
+      } else {
+        toast('Nothing to copy', 'info');
+      }
+    }},
   ];
+
+  if (isMine && msg && msg.type === 'text') {
+    actions.push({label:'✏ Edit Message', fn:()=>openEditModal(msgId)});
+  }
+
+  actions.push({label:'❤️ React', fn:()=>quickReact(msgId)});
+  actions.push({label:'🗑 Delete Message', fn:()=>deleteMsg(msgId)});
+
   const menu = document.createElement('div');
   menu.id='ctx-menu';
-  menu.style.cssText=`position:fixed;left:${Math.min(e.clientX,window.innerWidth-170)}px;top:${Math.min(e.clientY,window.innerHeight-200)}px;background:var(--bg-modal);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);z-index:2000;overflow:hidden;min-width:160px;animation:fadeIn 0.15s`;
+  menu.style.cssText=`position:fixed;left:${Math.min(e.clientX,window.innerWidth-180)}px;top:${Math.min(e.clientY,window.innerHeight-240)}px;background:var(--bg-modal);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);z-index:2000;overflow:hidden;min-width:170px;animation:fadeIn 0.15s`;
   actions.forEach(a=>{
     const btn=document.createElement('button');
     btn.textContent=a.label;
-    btn.style.cssText='width:100%;padding:11px 16px;text-align:left;font-size:14px;color:var(--text-primary);display:block;background:none;border:none;cursor:pointer;';
+    btn.style.cssText='width:100%;padding:11px 16px;text-align:left;font-size:14px;color:var(--text-primary);display:block;background:none;border:none;cursor:pointer;font-weight:500;';
     btn.onmouseenter=()=>btn.style.background='var(--bg-hover)';
     btn.onmouseleave=()=>btn.style.background='none';
     btn.onclick=()=>{a.fn();menu.remove();};
@@ -1322,14 +1394,127 @@ function showCtx(e, msgId, text) {
   setTimeout(()=>document.addEventListener('click',()=>menu.remove(),{once:true}),10);
 }
 
-async function setReply(msgId, text) {
-  const {data} = await sb.from('cw_messages').select('*').eq('id',msgId).single();
-  if (!data) return;
-  replyMsg = data;
-  document.getElementById('reply-sender').textContent = data.from_name||'User';
-  document.getElementById('reply-text').textContent = data.content||'['+data.type+']';
+// ---- Reply Logic ----
+function setReply(msgId) {
+  const msg = activeMsgsCache[msgId];
+  if (!msg) return;
+  replyMsg = msg;
+  document.getElementById('reply-sender').textContent = msg.from_name || 'User';
+  document.getElementById('reply-text').textContent = msg.content || '[' + msg.type + ']';
   document.getElementById('reply-preview').classList.remove('hidden');
   document.getElementById('msg-input').focus();
+}
+function clearReply() { replyMsg=null; document.getElementById('reply-preview').classList.add('hidden'); }
+
+// ---- Forward Modal & Logic ----
+function openForwardModal(msgId) {
+  const msg = activeMsgsCache[msgId];
+  if (!msg) return;
+  forwardingMsgId = msgId;
+  
+  const previewBox = document.getElementById('forward-preview-box');
+  previewBox.textContent = msg.content || `[${(msg.type||'attachment').toUpperCase()} File]`;
+
+  const listEl = document.getElementById('forward-target-list');
+  const contacts = allUsers.filter(u => u.id !== me.id);
+  const myGroups = allGroups.filter(g => g._members && g._members.includes(me.id));
+  
+  let html = '';
+  contacts.forEach(c => {
+    html += `
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--bg-tertiary);border-radius:10px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div class="chat-avatar" style="width:36px;height:36px;font-size:13px;background:linear-gradient(135deg,${c.color||'#2563eb'},${lighten(c.color||'#2563eb')})">
+            <span>${getInitials(c.name)}</span>
+          </div>
+          <div style="font-weight:600;font-size:14px">${esc(c.name)}</div>
+        </div>
+        <button class="save-btn" onclick="confirmForward('${c.id}', 'contact')">↪ Send</button>
+      </div>`;
+  });
+  myGroups.forEach(g => {
+    html += `
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--bg-tertiary);border-radius:10px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div class="chat-avatar" style="width:36px;height:36px;font-size:13px;background:linear-gradient(135deg,${g.color||'#2563eb'},${lighten(g.color||'#2563eb')})">
+            <span>${getInitials(g.name)}</span>
+          </div>
+          <div>
+            <div style="font-weight:600;font-size:14px">${esc(g.name)}</div>
+            <div style="font-size:11px;color:var(--accent)">Group</div>
+          </div>
+        </div>
+        <button class="save-btn" onclick="confirmForward('${g.id}', 'group')">↪ Send</button>
+      </div>`;
+  });
+
+  listEl.innerHTML = html || '<div style="padding:16px;text-align:center;color:var(--text-muted)">No contacts available</div>';
+  document.getElementById('forward-modal').classList.remove('hidden');
+}
+
+function closeForwardModal() {
+  document.getElementById('forward-modal').classList.add('hidden');
+  forwardingMsgId = null;
+}
+
+async function confirmForward(targetId, targetType) {
+  const orig = activeMsgsCache[forwardingMsgId];
+  if (!orig) return;
+  closeForwardModal();
+  
+  const fwdMsg = {
+    from_id: me.id,
+    from_name: me.name,
+    to_id: targetType === 'group' ? null : targetId,
+    group_id: targetType === 'group' ? targetId : null,
+    type: orig.type,
+    content: orig.content || '',
+    url: orig.url || null,
+    file_name: orig.file_name || null,
+    reactions: [],
+    status: 'sent'
+  };
+
+  const { data: inserted, error } = await sb.from('cw_messages').insert(fwdMsg).select().single();
+  if (error) { toast('Forward failed: ' + error.message, 'error'); return; }
+
+  const destName = targetType === 'group' 
+    ? allGroups.find(g=>g.id===targetId)?.name 
+    : allUsers.find(u=>u.id===targetId)?.name;
+
+  toast(`Forwarded to ${destName||'chat'}! ↪`, 'success');
+  if ((targetType==='group' && activeGroupId===targetId) || (targetType==='contact' && activeContactId===targetId)) {
+    if (inserted) appendMessageToUI(inserted);
+  }
+}
+
+// ---- Edit Message Modal & Logic ----
+function openEditModal(msgId) {
+  const msg = activeMsgsCache[msgId];
+  if (!msg || msg.from_id !== me.id) return;
+  editingMsgId = msgId;
+  document.getElementById('edit-msg-input').value = msg.content || '';
+  document.getElementById('edit-msg-modal').classList.remove('hidden');
+  document.getElementById('edit-msg-input').focus();
+}
+
+function closeEditModal() {
+  document.getElementById('edit-msg-modal').classList.add('hidden');
+  editingMsgId = null;
+}
+
+async function saveEditedMessage() {
+  if (!editingMsgId) return;
+  const newContent = document.getElementById('edit-msg-input').value.trim();
+  if (!newContent) { toast('Message text cannot be empty', 'error'); return; }
+
+  const { error } = await sb.from('cw_messages').update({ content: newContent, edited: true }).eq('id', editingMsgId).eq('from_id', me.id);
+  if (error) { toast('Edit failed: ' + error.message, 'error'); return; }
+
+  closeEditModal();
+  toast('Message updated! ✨', 'success');
+  await renderMessages();
+  renderChatList();
 }
 function clearReply() { replyMsg=null; document.getElementById('reply-preview').classList.add('hidden'); }
 
