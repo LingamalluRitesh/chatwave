@@ -721,13 +721,28 @@ function loadSession() {
 function saveSession(u) { me = u; try { localStorage.setItem(SESSION_KEY, JSON.stringify(u)); } catch(_){} }
 function clearSession() { me = null; try { localStorage.removeItem(SESSION_KEY); } catch(_){} }
 
-// ---- Presence via localStorage ----
+// ---- Presence via Supabase Realtime (Global Across All Devices) ----
+let onlineUserIds = new Set();
+
 function broadcastPresence() {
   if (!me) return;
   try { localStorage.setItem('cw_pres_' + me.id, Date.now().toString()); } catch(_){}
 }
+
 function isOnline(uid) {
-  try { const t = parseInt(localStorage.getItem('cw_pres_' + uid)||'0'); return Date.now()-t < 9000; } catch(_){ return false; }
+  if (!uid) return false;
+  if (onlineUserIds.has(uid)) return true;
+  try {
+    const t = parseInt(localStorage.getItem('cw_pres_' + uid) || '0');
+    return Date.now() - t < 12000;
+  } catch(_) { return false; }
+}
+
+function updateActiveChatPresenceHeader() {
+  if (activeContactId) {
+    const online = isOnline(activeContactId);
+    document.getElementById('chat-header-status').textContent = online ? '🟢 Online' : '⚫ Offline';
+  }
 }
 
 // ---- Group Loading ----
@@ -864,7 +879,7 @@ async function startApp() {
   setupRealtime();
   initDesktopNotifications();
   broadcastPresence();
-  setInterval(broadcastPresence, 5000);
+  setInterval(broadcastPresence, 4000);
 }
 
 function renderSidebar() {
@@ -877,25 +892,39 @@ function renderSidebar() {
   renderChatList();
 }
 
-// ---- Realtime & Typing Indicators ----
+// ---- Realtime & Global Presence ----
 let typingTimeout = null;
 let lastTypingBroadcast = 0;
 
 function setupRealtime() {
+  if (!me) return;
   if (realtimeChannel) sb.removeChannel(realtimeChannel);
-  realtimeChannel = sb.channel('cw-realtime')
-    .on('postgres_changes', { event: '*', schema: 'public', table: 'cw_messages' }, handleRealtimeMsgEvent)
-    .on('postgres_changes', { event: '*', schema: 'public', table: 'cw_groups' }, async () => { await loadAllGroups(); renderChatList(); })
-    .on('postgres_changes', { event: '*', schema: 'public', table: 'cw_group_members' }, async () => { await loadAllGroups(); renderChatList(); if (activeGroupId) openChat(activeGroupId, 'group'); })
-    .on('broadcast', { event: 'typing' }, payload => {
-      const data = payload.payload;
-      if (!data || !me || data.from_id === me.id) return;
-      const isTargetChat = (activeGroupId && data.group_id === activeGroupId) || (activeContactId && data.from_id === activeContactId);
-      if (isTargetChat) showTypingBanner(data.name);
-    })
-    .subscribe(status => {
-      if (status === 'SUBSCRIBED') console.log('✅ Realtime connected');
-    });
+
+  realtimeChannel = sb.channel('cw-realtime', {
+    config: { presence: { key: me.id } }
+  })
+  .on('postgres_changes', { event: '*', schema: 'public', table: 'cw_messages' }, handleRealtimeMsgEvent)
+  .on('postgres_changes', { event: '*', schema: 'public', table: 'cw_groups' }, async () => { await loadAllGroups(); renderChatList(); })
+  .on('postgres_changes', { event: '*', schema: 'public', table: 'cw_group_members' }, async () => { await loadAllGroups(); renderChatList(); if (activeGroupId) openChat(activeGroupId, 'group'); })
+  .on('broadcast', { event: 'typing' }, payload => {
+    const data = payload.payload;
+    if (!data || !me || data.from_id === me.id) return;
+    const isTargetChat = (activeGroupId && data.group_id === activeGroupId) || (activeContactId && data.from_id === activeContactId);
+    if (isTargetChat) showTypingBanner(data.name);
+  })
+  .on('presence', { event: 'sync' }, () => {
+    const state = realtimeChannel.presenceState();
+    onlineUserIds.clear();
+    Object.keys(state).forEach(key => onlineUserIds.add(key));
+    updateActiveChatPresenceHeader();
+    renderChatList();
+  })
+  .subscribe(async (status) => {
+    if (status === 'SUBSCRIBED') {
+      console.log('✅ Realtime connected & tracking presence');
+      await realtimeChannel.track({ user_id: me.id, name: me.name, online_at: new Date().toISOString() });
+    }
+  });
 }
 
 function showTypingBanner(name) {
