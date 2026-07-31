@@ -1226,7 +1226,9 @@ function handleInputKey(e) {
 
 async function pushMsg(data) {
   if (!me || (!activeGroupId && !activeContactId)) return;
+  const tempId = 'temp_' + Date.now() + '_' + Math.random().toString(36).substring(2,6);
   const msg = {
+    id: tempId,
     from_id: me.id,
     from_name: me.name,
     to_id: activeGroupId ? null : activeContactId,
@@ -1243,8 +1245,40 @@ async function pushMsg(data) {
   replyMsg = null;
   document.getElementById('reply-preview').classList.add('hidden');
 
-  const { error } = await sb.from('cw_messages').insert(msg);
-  if (error) { toast('Failed to send: ' + error.message, 'error'); }
+  // 1. OPTIMISTIC INSTANT UI: Render message on sender screen immediately (0ms delay)
+  appendMessageToUI(msg);
+  renderChatList();
+
+  // 2. Background Database Insert
+  const { data: inserted, error } = await sb.from('cw_messages').insert({
+    from_id: msg.from_id,
+    from_name: msg.from_name,
+    to_id: msg.to_id,
+    group_id: msg.group_id,
+    type: msg.type,
+    content: msg.content,
+    url: msg.url,
+    file_name: msg.file_name,
+    reply_to: msg.reply_to,
+    reactions: [],
+    status: 'sent'
+  }).select().single();
+
+  if (error) {
+    toast('Failed to send: ' + error.message, 'error');
+    document.getElementById(`m_${tempId}`)?.remove();
+    return;
+  }
+
+  // 3. Update DOM Element ID to permanent Supabase UUID
+  if (inserted) {
+    const el = document.getElementById(`m_${tempId}`);
+    if (el) {
+      el.id = `m_${inserted.id}`;
+      el.ondblclick = () => quickReact(inserted.id);
+      el.oncontextmenu = (e) => showCtx(e, inserted.id, inserted.content || '');
+    }
+  }
 }
 
 // ---- Reactions / Context Menu ----
