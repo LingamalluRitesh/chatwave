@@ -855,16 +855,56 @@ function renderSidebar() {
   renderChatList();
 }
 
-// ---- Realtime ----
+// ---- Realtime & Typing Indicators ----
+let typingTimeout = null;
+let lastTypingBroadcast = 0;
+
 function setupRealtime() {
   if (realtimeChannel) sb.removeChannel(realtimeChannel);
   realtimeChannel = sb.channel('cw-realtime')
     .on('postgres_changes', { event: '*', schema: 'public', table: 'cw_messages' }, handleRealtimeMsgEvent)
     .on('postgres_changes', { event: '*', schema: 'public', table: 'cw_groups' }, async () => { await loadAllGroups(); renderChatList(); })
     .on('postgres_changes', { event: '*', schema: 'public', table: 'cw_group_members' }, async () => { await loadAllGroups(); renderChatList(); if (activeGroupId) openChat(activeGroupId, 'group'); })
+    .on('broadcast', { event: 'typing' }, payload => {
+      const data = payload.payload;
+      if (!data || !me || data.from_id === me.id) return;
+      const isTargetChat = (activeGroupId && data.group_id === activeGroupId) || (activeContactId && data.from_id === activeContactId);
+      if (isTargetChat) showTypingBanner(data.name);
+    })
     .subscribe(status => {
       if (status === 'SUBSCRIBED') console.log('✅ Realtime connected');
     });
+}
+
+function showTypingBanner(name) {
+  const banner = document.getElementById('typing-banner');
+  const nameEl = document.getElementById('typing-name');
+  if (!banner || !nameEl) return;
+  nameEl.textContent = name;
+  banner.classList.remove('hidden');
+  clearTimeout(typingTimeout);
+  typingTimeout = setTimeout(() => {
+    banner.classList.add('hidden');
+  }, 3000);
+}
+
+function broadcastTyping() {
+  if (!me || (!activeGroupId && !activeContactId)) return;
+  const now = Date.now();
+  if (now - lastTypingBroadcast < 1500) return; // Throttle broadcasts
+  lastTypingBroadcast = now;
+  if (realtimeChannel) {
+    realtimeChannel.send({
+      type: 'broadcast',
+      event: 'typing',
+      payload: {
+        from_id: me.id,
+        name: me.name,
+        group_id: activeGroupId || null,
+        to_id: activeContactId || null
+      }
+    });
+  }
 }
 
 async function handleRealtimeMsgEvent(payload) {
@@ -881,16 +921,16 @@ async function handleIncomingMsg(payload) {
   if (!me || msg.from_id === me.id) return;
   const forMe = (msg.to_id === me.id) || (msg.group_id && isMyGroup(msg.group_id));
   if (!forMe) return;
-  const activeKey = activeGroupId || activeContactId;
-  const msgKey = msg.group_id || msg.from_id;
-  if (activeKey && activeKey === msgKey) {
-    renderMessages();
-    scrollBottom();
+
+  const isCurrentChat = (activeGroupId && msg.group_id === activeGroupId) || (activeContactId && msg.from_id === activeContactId);
+  if (isCurrentChat) {
+    appendMessageToUI(msg);
     await sb.from('cw_messages').update({status:'read'}).eq('id', msg.id);
   } else {
-    unreadMap[msgKey] = (unreadMap[msgKey] || 0) + 1;
+    const key = msg.group_id || msg.from_id;
+    unreadMap[key] = (unreadMap[key] || 0) + 1;
     const sender = allUsers.find(u => u.id === msg.from_id);
-    toast(`💬 ${sender?.name||'Someone'}: ${(msg.content||'').substring(0,40)}`, 'info');
+    toast(`💬 ${sender?.name||msg.from_name||'Someone'}: ${(msg.content||'').substring(0,40)}`, 'info');
   }
   renderChatList();
 }
@@ -900,19 +940,51 @@ function isMyGroup(gid) {
   return g && g._members && g._members.includes(me.id);
 }
 
+// ---- Instant Message UI Appender ----
+function appendMessageToUI(msg) {
+  const area = document.getElementById('messages-area');
+  if (!area) return;
+  if (area.innerHTML.includes('No messages yet')) area.innerHTML = '';
+  
+  const isOut = msg.from_id === me.id;
+  const dir = isOut ? 'out' : 'in';
+  const tick = isOut ? (msg.status==='read'?'<span style="color:#60a5fa">✓✓</span>':'<span style="opacity:0.6">✓✓</span>') : '';
+  const senderLine = !isOut && activeGroupId ? `<div class="bubble-sender">${esc(msg.from_name||'')}</div>` : '';
+  const replyLine = msg.reply_to ? `<div style="border-left:3px solid var(--accent);padding:6px 10px;margin-bottom:6px;background:rgba(0,0,0,0.15);border-radius:6px;font-size:12px"><b>Replying to @${esc(msg.reply_to.name||'User')}</b><br><span style="opacity:0.85">${esc(msg.reply_to.text||'')}</span></div>` : '';
+  
+  let content = '';
+  if (msg.type==='text') content = `<div>${esc(msg.content||'')}</div>`;
+  else if (msg.type==='image') content = `<img src="${msg.url}" style="max-width:260px;border-radius:12px;display:block;margin-bottom:4px;cursor:pointer" onclick="viewMedia('${msg.url}')" />`;
+  else if (msg.type==='video') content = `<video src="${msg.url}" controls style="max-width:260px;border-radius:12px;display:block;margin-bottom:4px"></video>`;
+  else if (msg.type==='audio') content = `<audio src="${msg.url}" controls style="max-width:260px;margin-bottom:4px"></audio>`;
+  else if (msg.type==='document') content = `<div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:rgba(255,255,255,0.08);border-radius:10px;margin-bottom:4px">📄 <span style="flex:1;font-weight:600;font-size:13px;word-break:break-all">${esc(msg.file_name||'Document')}</span> <a href="${msg.url}" download="${esc(msg.file_name||'file')}" style="color:var(--accent);font-weight:700;text-decoration:none">⬇ Save</a></div>`;
+  
+  const reactions = Array.isArray(msg.reactions) && msg.reactions.length ? `<div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:4px">${msg.reactions.map(r=>`<span style="background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.3);border-radius:12px;padding:2px 8px;font-size:13px">${r.emoji}${r.count>1?' '+r.count:''}</span>`).join('')}</div>` : '';
+  
+  const msgEl = document.createElement('div');
+  msgEl.className = `msg-bubble ${dir}`;
+  msgEl.id = `m_${msg.id}`;
+  msgEl.ondblclick = () => quickReact(msg.id);
+  msgEl.oncontextmenu = (e) => showCtx(e, msg.id, msg.content||'');
+  msgEl.innerHTML = `
+    <div class="bubble-inner">
+      ${replyLine}${senderLine}${content}
+      <div class="bubble-meta"><span class="bubble-time">${fmtTime(msg.created_at || Date.now())}</span>${tick}</div>
+    </div>${reactions}`;
+  
+  area.appendChild(msgEl);
+  scrollBottom();
+}
+
 // ---- Chat List ----
 async function renderChatList() {
   const list = document.getElementById('chat-list');
   const contacts = allUsers.filter(u => u.id !== me.id);
-  const myGroups = allGroups.filter(g => {
-    // We need group_members; we'll store in allGroups enriched
-    return g._members && g._members.includes(me.id);
-  });
+  const myGroups = allGroups.filter(g => g._members && g._members.includes(me.id));
   let items = [];
 
   if (currentFilter !== 'groups') {
     let fc = searchQuery ? contacts.filter(c => c.name.toLowerCase().includes(searchQuery)) : contacts;
-    // Get last message for each contact
     for (const c of fc) {
       const { data: msgs } = await sb.from('cw_messages')
         .select('*').or(`and(from_id.eq.${me.id},to_id.eq.${c.id}),and(from_id.eq.${c.id},to_id.eq.${me.id})`)
@@ -1019,33 +1091,8 @@ async function renderMessages() {
     area.innerHTML = `<div style="text-align:center;color:var(--text-muted);padding:40px;font-size:14px">No messages yet. Say hi! 👋</div>`;
     return;
   }
-  let html = ''; let lastDate = '';
-  msgs.forEach(msg => {
-    const date = fmtDate(msg.created_at);
-    if (date !== lastDate) { html += `<div class="date-sep"><span>${date}</span></div>`; lastDate = date; }
-    const isOut = msg.from_id === me.id;
-    const dir = isOut ? 'out' : 'in';
-    const tick = isOut ? (msg.status==='read'?'<span style="color:#60a5fa">✓✓</span>':'<span style="opacity:0.6">✓✓</span>') : '';
-    const senderLine = !isOut && activeGroupId ? `<div class="bubble-sender">${esc(msg.from_name||'')}</div>` : '';
-    const replyLine = msg.reply_to ? `<div style="border-left:3px solid var(--accent);padding:6px 10px;margin-bottom:6px;background:rgba(0,0,0,0.15);border-radius:6px;font-size:12px"><b>Replying to @${esc(msg.reply_to.name||'User')}</b><br><span style="opacity:0.85">${esc(msg.reply_to.text||'')}</span></div>` : '';
-    
-    let content = '';
-    if (msg.type==='text') content = `<div>${esc(msg.content||'')}</div>`;
-    else if (msg.type==='image') content = `<img src="${msg.url}" style="max-width:260px;border-radius:12px;display:block;margin-bottom:4px;cursor:pointer" onclick="viewMedia('${msg.url}')" />`;
-    else if (msg.type==='video') content = `<video src="${msg.url}" controls style="max-width:260px;border-radius:12px;display:block;margin-bottom:4px"></video>`;
-    else if (msg.type==='audio') content = `<audio src="${msg.url}" controls style="max-width:260px;margin-bottom:4px"></audio>`;
-    else if (msg.type==='document') content = `<div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:rgba(255,255,255,0.08);border-radius:10px;margin-bottom:4px">📄 <span style="flex:1;font-weight:600;font-size:13px;word-break:break-all">${esc(msg.file_name||'Document')}</span> <a href="${msg.url}" download="${esc(msg.file_name||'file')}" style="color:var(--accent);font-weight:700;text-decoration:none">⬇ Save</a></div>`;
-    
-    const reactions = Array.isArray(msg.reactions) && msg.reactions.length ? `<div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:4px">${msg.reactions.map(r=>`<span style="background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.3);border-radius:12px;padding:2px 8px;font-size:13px">${r.emoji}${r.count>1?' '+r.count:''}</span>`).join('')}</div>` : '';
-    html += `
-      <div class="msg-bubble ${dir}" id="m_${msg.id}" ondblclick="quickReact('${msg.id}')" oncontextmenu="showCtx(event,'${msg.id}','${esc(msg.content||'')}')">
-        <div class="bubble-inner">
-          ${replyLine}${senderLine}${content}
-          <div class="bubble-meta"><span class="bubble-time">${fmtTime(msg.created_at)}</span>${tick}</div>
-        </div>${reactions}
-      </div>`;
-  });
-  area.innerHTML = html;
+  area.innerHTML = '';
+  msgs.forEach(msg => appendMessageToUI(msg));
   scrollBottom();
 }
 
@@ -1059,7 +1106,12 @@ async function sendText() {
 }
 
 function handleInputKey(e) {
-  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendText(); }
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendText();
+  } else {
+    broadcastTyping();
+  }
 }
 
 async function pushMsg(data) {
@@ -1075,15 +1127,18 @@ async function pushMsg(data) {
     file_name: data.file_name || null,
     reply_to: replyMsg ? {id:replyMsg.id, name:replyMsg.from_name, text:replyMsg.content} : null,
     reactions: [],
-    status: 'sent'
+    status: 'sent',
+    created_at: new Date().toISOString()
   };
   replyMsg = null;
   document.getElementById('reply-preview').classList.add('hidden');
-  const {error} = await sb.from('cw_messages').insert(msg);
-  if (error) { toast('Failed to send: ' + error.message, 'error'); return; }
-  await renderMessages();
+  
+  // Instantly append to own UI without waiting for network
+  appendMessageToUI(msg);
   renderChatList();
-  scrollBottom();
+
+  const {data:inserted, error} = await sb.from('cw_messages').insert(msg).select().single();
+  if (error) { toast('Failed to send: ' + error.message, 'error'); return; }
 }
 
 // ---- Reactions / Context Menu ----
