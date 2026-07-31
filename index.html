@@ -1009,20 +1009,19 @@ async function handleRealtimeMsgEvent(payload) {
 
 async function handleIncomingMsg(payload) {
   const msg = payload.new;
-  if (!me) return;
+  if (!me || !msg) return;
 
   if (msg.group_id && !allGroups.some(g => g.id === msg.group_id)) {
     await loadAllGroups();
   }
 
-  const forMe = (msg.to_id === me.id) || (msg.group_id && isMyGroup(msg.group_id));
+  // Accept message if user is recipient OR sender OR group member
+  const forMe = (msg.to_id === me.id) || (msg.from_id === me.id) || (msg.group_id && isMyGroup(msg.group_id));
   if (!forMe) return;
 
   const isCurrentChat = (activeGroupId && msg.group_id === activeGroupId) || (activeContactId && (msg.from_id === activeContactId || msg.to_id === activeContactId));
   if (isCurrentChat) {
-    if (!document.getElementById(`m_${msg.id}`)) {
-      appendMessageToUI(msg);
-    }
+    appendMessageToUI(msg);
     if (msg.from_id !== me.id) {
       await sb.from('cw_messages').update({status:'read'}).eq('id', msg.id);
     }
@@ -1054,6 +1053,7 @@ function appendMessageToUI(msg) {
   if (!area) return;
   if (area.innerHTML.includes('No messages yet')) area.innerHTML = '';
   
+  // Deduplicate by Supabase msg.id or temporary element ID
   if (msg.id && document.getElementById(`m_${msg.id}`)) return;
 
   const isOut = msg.from_id === me.id;
@@ -1225,7 +1225,7 @@ function handleInputKey(e) {
 }
 
 async function pushMsg(data) {
-  if (!me) return;
+  if (!me || (!activeGroupId && !activeContactId)) return;
   const msg = {
     from_id: me.id,
     from_name: me.name,
@@ -1243,13 +1243,8 @@ async function pushMsg(data) {
   replyMsg = null;
   document.getElementById('reply-preview').classList.add('hidden');
 
-  const {data:inserted, error} = await sb.from('cw_messages').insert(msg).select().single();
-  if (error) { toast('Failed to send: ' + error.message, 'error'); return; }
-  
-  if (inserted) {
-    appendMessageToUI(inserted);
-    renderChatList();
-  }
+  const { error } = await sb.from('cw_messages').insert(msg);
+  if (error) { toast('Failed to send: ' + error.message, 'error'); }
 }
 
 // ---- Reactions / Context Menu ----
