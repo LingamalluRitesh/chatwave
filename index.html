@@ -1683,21 +1683,30 @@ function toast(msg,type='info') {
 }
 
 // ---- Emoji ----
-const EMOJIS='😀😃😄😁😆😅🤣😂🙂😊😇🥰😍😘😋😛😜🤪😝😎🤩😏😒🙄😬😌😔😴😷🤒🤧😵🤯😕😟😮😲😳🥺😦😧😨😰😥😢😭😱😖😩😫😤😡😠🤬😈💀💩🤡👻👽🤖💋❤️🧡💛💚💙💜🖤💔💕💞💗💖💘💝👍👎👏🙌🙏✊💪👋✋💃🕺🔥✨⭐🌟🎉🎊🏆🚀'.split('');
+const EMOJIS=[...'😀😃😄😁😆😅🤣😂🙂😊😇🥰😍😘😋😛😜🤪😝😎🤩😏😒🙄😬😌😔😴😷🤒🤧😵🤯😕😟😮😲😳🥺😦😧😨😰😥😢😭😱😖😩😫😤😡😠🤬😈💀💩🤡👻👽🤖💋❤️🧡💛💚💙💜🖤💔💕💞💗💖💘💝👍👎👏🙌🙏✊💪👋✋💃🕺🔥✨⭐🌟🎉🎊🏆🚀'];
 function toggleEmoji() {
   let picker=document.getElementById('emoji-picker-popup');
   if (picker) { picker.remove(); return; }
   picker=document.createElement('div');
   picker.id='emoji-picker-popup';
-  picker.style.cssText='position:fixed;bottom:80px;right:20px;background:var(--bg-modal);border:1px solid var(--border);border-radius:16px;padding:12px;z-index:2000;display:grid;grid-template-columns:repeat(8,34px);gap:4px;max-height:260px;overflow-y:auto;box-shadow:var(--shadow)';
+  picker.style.cssText='position:fixed;bottom:80px;right:20px;background:var(--bg-modal);border:1px solid var(--border);border-radius:16px;padding:12px;z-index:2000;display:grid;grid-template-columns:repeat(8,36px);gap:6px;max-height:260px;overflow-y:auto;box-shadow:var(--shadow)';
   EMOJIS.forEach(e=>{
     const b=document.createElement('button');
-    b.textContent=e; b.style.cssText='font-size:22px;width:34px;height:34px;border-radius:8px;border:none;background:none;cursor:pointer;';
+    b.textContent=e; b.style.cssText='font-size:22px;width:36px;height:36px;border-radius:8px;border:none;background:none;cursor:pointer;display:flex;align-items:center;justify-content:center';
     b.onmouseenter=()=>b.style.background='var(--bg-hover)';
     b.onmouseleave=()=>b.style.background='none';
-    b.onclick=()=>{
+    b.onclick=(evt)=>{
+      evt.stopPropagation();
       const inp=document.getElementById('msg-input');
-      inp.textContent+=(inp.textContent||'')+e;
+      inp.textContent += e;
+      // Move cursor to end of contenteditable
+      const sel = window.getSelection();
+      const range = document.createRange();
+      range.selectNodeContents(inp);
+      range.collapse(false);
+      sel.removeAllRanges();
+      sel.addRange(range);
+      inp.focus();
     };
     picker.appendChild(b);
   });
