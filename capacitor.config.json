@@ -1,0 +1,9 @@
+{
+  "appId": "app.chatwave.live",
+  "appName": "ChatWave",
+  "webDir": "www",
+  "server": {
+    "url": "https://chatwave-tr1z.onrender.com",
+    "cleartext": true
+  }
+}
