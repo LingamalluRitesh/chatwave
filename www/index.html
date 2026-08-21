@@ -14,6 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <!-- Supabase JS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="src/styles/miniapps.css" />
   <style>
     :root {
       --font: 'Inter', -apple-system, sans-serif;
@@ -483,6 +484,9 @@
         <img id="my-dp" class="hidden" alt="" />
       </div>
       <span id="sidebar-name" style="font-weight:600;font-size:15px;flex:1"></span>
+      <button class="header-icon-btn" onclick="openMiniAppsModal()" title="Mini-Apps & Games">🎮</button>
+      <button class="header-icon-btn" onclick="openWhiteboardModal()" title="Whiteboard">🎨</button>
+      <button class="header-icon-btn" onclick="openSoundboardModal()" title="Soundboard">🔊</button>
       <button class="header-icon-btn" id="install-pwa-btn" onclick="installPWA()" title="Install App on Phone">
         📱
       </button>
@@ -542,13 +546,15 @@
           <div id="chat-header-status" style="font-size:12px;color:var(--text-muted)"></div>
         </div>
         <div class="chat-header-actions">
+          <button class="header-icon-btn" onclick="event.stopPropagation();openMiniAppsModal()" title="Play Games (Chess, Wordle, Trivia, 2048)">🎮</button>
+          <button class="header-icon-btn" onclick="event.stopPropagation();openWhiteboardModal()" title="Collaborative Whiteboard">🎨</button>
           <button class="header-icon-btn" id="clear-chat-btn" onclick="event.stopPropagation();clearCurrentChat()" title="Clear Chat">
             <svg viewBox="0 0 24 24"><path d="M15 16h4v2h-4zm0-8h7v2h-7zm0 4h5v2h-5zM3 18c0 1.1.9 2 2 2h6c1.1 0 2-.9 2-2V8H3v10zM14 5h-3l-1-1H6L5 5H2v2h12z" fill="currentColor"/></svg>
           </button>
           <button class="header-icon-btn" id="group-info-btn" onclick="event.stopPropagation();openGroupInfoModal()" title="Group Info" style="display:none">
             <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" fill="currentColor"/></svg>
           </button>
-          <button class="header-icon-btn" id="call-btn" onclick="event.stopPropagation();toast('Calling... 📞','info')">
+          <button class="header-icon-btn" id="call-btn" onclick="event.stopPropagation();startVoiceCall()" title="Voice Call">
             <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" fill="currentColor"/></svg>
           </button>
         </div>
@@ -573,6 +579,66 @@
           <svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
         </button>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- Mini-Apps & Games Modal -->
+<div class="modal-overlay hidden" id="cw-miniapps-modal">
+  <div class="modal" style="max-width:580px">
+    <div class="modal-header">
+      <h3>🎮 In-Chat Mini-Apps & Games</h3>
+      <button class="close-modal-btn" onclick="closeMiniAppsModal()">✕</button>
+    </div>
+    <div class="cw-miniapps-nav" style="padding:12px 16px 0;display:flex;gap:6px;overflow-x:auto;border-bottom:1px solid var(--border)">
+      <button class="cw-miniapps-tab active" onclick="switchMiniApp('chess', this)">♟️ Chess</button>
+      <button class="cw-miniapps-tab" onclick="switchMiniApp('tictactoe', this)">🎮 Tic-Tac-Toe</button>
+      <button class="cw-miniapps-tab" onclick="switchMiniApp('wordle', this)">🔤 Wordle</button>
+      <button class="cw-miniapps-tab" onclick="switchMiniApp('2048', this)">🔢 2048</button>
+      <button class="cw-miniapps-tab" onclick="switchMiniApp('trivia', this)">🏆 Trivia Quiz</button>
+    </div>
+    <div class="modal-body" id="cw-miniapp-host" style="min-height:360px"></div>
+  </div>
+</div>
+
+<!-- Whiteboard Modal -->
+<div class="modal-overlay hidden" id="cw-whiteboard-modal">
+  <div class="modal" style="max-width:850px;width:95vw;height:85vh;display:flex;flex-direction:column">
+    <div class="modal-header" style="flex-wrap:wrap;gap:8px">
+      <h3>🎨 Collaborative Whiteboard</h3>
+      <button class="cw-btn-mini" onclick="ChatWaveWhiteboard.setTool('brush')">🖌️ Brush</button>
+      <button class="cw-btn-mini" onclick="ChatWaveWhiteboard.setTool('eraser')">🧹 Eraser</button>
+      <button class="cw-btn-mini" onclick="ChatWaveWhiteboard.setTool('line')">📏 Line</button>
+      <button class="cw-btn-mini" onclick="ChatWaveWhiteboard.setTool('rect')">⬜ Box</button>
+      <button class="cw-btn-mini" onclick="ChatWaveWhiteboard.setTool('circle')">⭕ Circle</button>
+      <input type="color" value="#00a884" onchange="ChatWaveWhiteboard.setColor(this.value)" style="width:30px;height:30px;border-radius:50%;cursor:pointer" />
+      <button class="cw-btn-mini" onclick="ChatWaveWhiteboard.undo()">↩ Undo</button>
+      <button class="cw-btn-mini" onclick="ChatWaveWhiteboard.clear()">🗑️ Clear</button>
+      <button class="cw-btn-primary" style="padding:6px 14px;font-size:12px;margin-left:auto" onclick="sendWhiteboardToChat()">Send to Chat 💬</button>
+      <button class="close-modal-btn" onclick="closeWhiteboardModal()">✕</button>
+    </div>
+    <div style="flex:1;position:relative;background:#111b21">
+      <canvas id="cw-whiteboard-canvas" style="width:100%;height:100%;display:block;touch-action:none;cursor:crosshair"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- Soundboard Modal -->
+<div class="modal-overlay hidden" id="cw-soundboard-modal">
+  <div class="modal" style="max-width:440px">
+    <div class="modal-header">
+      <h3>🔊 Soundboard FX</h3>
+      <button class="close-modal-btn" onclick="closeSoundboardModal()">✕</button>
+    </div>
+    <div class="modal-body" style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px">
+      <button class="cw-trivia-opt" onclick="triggerSoundFX('pop')">🎈 Pop Bubble</button>
+      <button class="cw-trivia-opt" onclick="triggerSoundFX('laser')">🔫 Laser Zap</button>
+      <button class="cw-trivia-opt" onclick="triggerSoundFX('bell')">🔔 Notification Bell</button>
+      <button class="cw-trivia-opt" onclick="triggerSoundFX('chime')">✨ Magic Chime</button>
+      <button class="cw-trivia-opt" onclick="triggerSoundFX('horn')">🎺 Airhorn Meme</button>
+      <button class="cw-trivia-opt" onclick="triggerSoundFX('bass')">🔊 Bass Drop</button>
+      <button class="cw-trivia-opt" onclick="triggerSoundFX('win')">🏆 Victory Fanfare</button>
+      <button class="cw-trivia-opt" onclick="triggerSoundFX('lose')">💀 Defeat Oof</button>
     </div>
   </div>
 </div>
@@ -1996,6 +2062,82 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+// ---- Mini-Apps & Games Handlers ----
+function openMiniAppsModal() {
+  document.getElementById('cw-miniapps-modal').classList.remove('hidden');
+  switchMiniApp('chess');
+}
+function closeMiniAppsModal() {
+  document.getElementById('cw-miniapps-modal').classList.add('hidden');
+}
+function switchMiniApp(appName, btn) {
+  if (btn) {
+    document.querySelectorAll('.cw-miniapps-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  const host = document.getElementById('cw-miniapp-host');
+  if (!host) return;
+  host.innerHTML = `<div id="cw-${appName}-container"></div>`;
+
+  if (appName === 'chess' && window.ChatWaveChess) ChatWaveChess.render('cw-chess-container');
+  else if (appName === 'tictactoe' && window.ChatWaveTicTacToe) ChatWaveTicTacToe.render('cw-tictactoe-container');
+  else if (appName === 'wordle' && window.ChatWaveWordle) ChatWaveWordle.render('cw-wordle-container');
+  else if (appName === '2048' && window.ChatWave2048) ChatWave2048.render('cw-2048-container');
+  else if (appName === 'trivia' && window.ChatWaveTriviaGame) ChatWaveTriviaGame.start('all');
+}
+
+// ---- Whiteboard Handlers ----
+function openWhiteboardModal() {
+  document.getElementById('cw-whiteboard-modal').classList.remove('hidden');
+  setTimeout(() => {
+    if (window.ChatWaveWhiteboard) ChatWaveWhiteboard.init('cw-whiteboard-canvas');
+  }, 50);
+}
+function closeWhiteboardModal() {
+  document.getElementById('cw-whiteboard-modal').classList.add('hidden');
+}
+function sendWhiteboardToChat() {
+  if (window.ChatWaveWhiteboard) {
+    const dataUrl = ChatWaveWhiteboard.toDataURL();
+    if (dataUrl) {
+      sendMsg({ type: 'image', url: dataUrl, content: '🎨 Collaborative Whiteboard Drawing' });
+      closeWhiteboardModal();
+      toast('Drawing sent to chat! 🎨', 'success');
+    }
+  }
+}
+
+// ---- Soundboard Handlers ----
+function openSoundboardModal() {
+  document.getElementById('cw-soundboard-modal').classList.remove('hidden');
+}
+function closeSoundboardModal() {
+  document.getElementById('cw-soundboard-modal').classList.add('hidden');
+}
+function triggerSoundFX(snd) {
+  if (window.ChatWaveSound) {
+    if (snd === 'pop') ChatWaveSound.playPop();
+    else if (snd === 'laser') ChatWaveSound.playLaser();
+    else if (snd === 'bell') ChatWaveSound.playBell();
+    else if (snd === 'chime') ChatWaveSound.playChime();
+    else if (snd === 'horn') ChatWaveSound.playAirhorn();
+    else if (snd === 'bass') ChatWaveSound.playBassDrop();
+    else if (snd === 'win') ChatWaveSound.playVictory();
+    else if (snd === 'lose') ChatWaveSound.playDefeat();
+  }
+  toast(`Played sound: ${snd.toUpperCase()} 🔊`, 'info');
+}
+
+function startVoiceCall() {
+  if (!activeContactId) return;
+  const target = allUsers.find(u => u.id === activeContactId);
+  if (target && window.ChatWaveCallModal) {
+    ChatWaveCallModal.openCall(target, 'audio');
+  } else {
+    toast('Starting voice call... 📞', 'info');
+  }
+}
+
 // ---- Boot ----
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('tab-login').onclick = ()=>showTab('login');
@@ -2014,5 +2156,31 @@ document.addEventListener('DOMContentLoaded', () => {
   boot();
 });
 </script>
+
+<!-- ChatWave 3.0 Interactive Engines & Mini-Apps Modules -->
+<script src="src/data/emojis.js"></script>
+<script src="src/data/stickers.js"></script>
+<script src="src/data/soundPresets.js"></script>
+<script src="src/data/triviaQuestions.js"></script>
+<script src="src/data/wallpapers.js"></script>
+<script src="src/core/StateStore.js"></script>
+<script src="src/core/EventBus.js"></script>
+<script src="src/core/Router.js"></script>
+<script src="src/core/SoundSynthesizer.js"></script>
+<script src="src/core/ParticleEffects.js"></script>
+<script src="src/core/I18nEngine.js"></script>
+<script src="src/components/MiniApps/ChessGame.js"></script>
+<script src="src/components/MiniApps/TicTacToeGame.js"></script>
+<script src="src/components/MiniApps/WordleGame.js"></script>
+<script src="src/components/MiniApps/Game2048.js"></script>
+<script src="src/components/MiniApps/TriviaQuizGame.js"></script>
+<script src="src/components/MiniApps/CodePlayground.js"></script>
+<script src="src/components/Whiteboard/WhiteboardComponent.js"></script>
+<script src="src/components/AIAssistant/AIAssistantComponent.js"></script>
+<script src="src/components/Stories/StoriesComponent.js"></script>
+<script src="src/components/Polls/PollComponent.js"></script>
+<script src="src/components/ThemeStudio/ThemeStudioComponent.js"></script>
+<script src="src/components/Soundboard/SoundboardComponent.js"></script>
+<script src="src/components/Calls/CallModalComponent.js"></script>
 </body>
 </html>

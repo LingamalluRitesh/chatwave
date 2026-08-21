@@ -1,18 +1,29 @@
 {
   "name": "chatwave-messaging-app",
-  "version": "2.0.0",
-  "description": "ChatWave - WhatsApp-inspired messaging web application with Node.js Express Backend & Realtime Storage",
-  "main": "server.js",
+  "version": "3.0.0",
+  "description": "ChatWave 3.0 - Ultra-Interactive Real-Time Messaging Platform with WebRTC Calls, Mini-Apps, AI Assistant, Whiteboard & E2EE",
+  "main": "server/server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "start": "node server/server.js",
+    "dev": "node server/server.js",
+    "test": "node tests/runner.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "socket.io": "^4.7.5"
   },
-  "keywords": ["messaging", "whatsapp", "chat", "express", "socketio"],
-  "author": "",
+  "keywords": [
+    "messaging",
+    "chatwave",
+    "webrtc",
+    "miniapps",
+    "ai",
+    "whiteboard",
+    "e2ee",
+    "realtime",
+    "supabase"
+  ],
+  "author": "Lingamallu Ritesh & Antigravity",
   "license": "MIT"
 }
