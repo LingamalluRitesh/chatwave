@@ -1,7 +1,9 @@
 {
   "name": "chatwave-messaging-app",
   "version": "3.0.0",
-  "description": "ChatWave 3.0 - Ultra-Interactive Real-Time Messaging Platform with WebRTC Calls, Mini-Apps, AI Assistant, Whiteboard & E2EE",
+  "private": true,
+  "license": "UNLICENSED",
+  "description": "Proprietary ChatWave 3.0 - Ultra-Interactive Real-Time Messaging Platform with WebRTC Calls, Mini-Apps, AI Assistant, Whiteboard & E2EE",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
@@ -22,8 +24,7 @@
     "whiteboard",
     "e2ee",
     "realtime",
-    "supabase"
+    "proprietary"
   ],
-  "author": "Lingamallu Ritesh & Antigravity",
-  "license": "MIT"
+  "author": "Proprietary Platform Team"
 }
