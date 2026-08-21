@@ -87,7 +87,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #9)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -177,7 +177,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #19)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -267,7 +267,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #29)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -357,7 +357,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #39)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -447,7 +447,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #49)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -537,7 +537,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #59)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -627,7 +627,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #69)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -717,7 +717,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #79)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -807,7 +807,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #89)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -897,7 +897,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #99)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -987,7 +987,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #109)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -1077,7 +1077,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #119)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -1167,7 +1167,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #129)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -1257,7 +1257,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #139)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -1347,7 +1347,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #149)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -1437,7 +1437,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #159)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -1527,7 +1527,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #169)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -1617,7 +1617,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #179)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -1707,7 +1707,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #189)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -1797,7 +1797,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #199)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -1887,7 +1887,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #209)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -1977,7 +1977,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #219)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -2067,7 +2067,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #229)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -2157,7 +2157,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #239)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -2247,7 +2247,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #249)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -2337,7 +2337,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #259)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -2427,7 +2427,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #269)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -2517,7 +2517,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #279)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -2607,7 +2607,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #289)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -2697,7 +2697,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #299)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -2787,7 +2787,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #309)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -2877,7 +2877,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #319)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -2967,7 +2967,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #329)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -3057,7 +3057,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #339)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -3147,7 +3147,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #349)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -3237,7 +3237,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #359)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -3327,7 +3327,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #369)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -3417,7 +3417,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #379)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -3507,7 +3507,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #389)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -3597,7 +3597,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #399)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -3687,7 +3687,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #409)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -3777,7 +3777,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #419)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -3867,7 +3867,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #429)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -3957,7 +3957,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #439)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -4047,7 +4047,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #449)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -4137,7 +4137,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #459)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -4227,7 +4227,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #469)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -4317,7 +4317,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #479)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -4407,7 +4407,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #489)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -4497,7 +4497,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #499)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -4587,7 +4587,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #509)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -4677,7 +4677,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #519)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -4767,7 +4767,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #529)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -4857,7 +4857,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #539)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -4947,7 +4947,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #549)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -5037,7 +5037,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #559)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -5127,7 +5127,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #569)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -5217,7 +5217,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #579)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -5307,7 +5307,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #589)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -5397,7 +5397,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #599)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -5487,7 +5487,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #609)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -5577,7 +5577,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #619)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -5667,7 +5667,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #629)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -5757,7 +5757,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #639)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -5847,7 +5847,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #649)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -5937,7 +5937,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #659)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -6027,7 +6027,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #669)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -6117,7 +6117,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #679)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -6207,7 +6207,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #689)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -6297,7 +6297,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #699)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -6387,7 +6387,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #709)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -6477,7 +6477,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #719)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -6567,7 +6567,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #729)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -6657,7 +6657,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #739)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -6747,7 +6747,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #749)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -6837,7 +6837,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #759)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -6927,7 +6927,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #769)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -7017,7 +7017,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #779)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -7107,7 +7107,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #789)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -7197,7 +7197,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #799)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -7287,7 +7287,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #809)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -7377,7 +7377,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #819)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -7467,7 +7467,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #829)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -7557,7 +7557,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #839)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -7647,7 +7647,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #849)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -7737,7 +7737,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #859)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -7827,7 +7827,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #869)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -7917,7 +7917,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #879)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -8007,7 +8007,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #889)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -8097,7 +8097,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #899)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -8187,7 +8187,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #909)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -8277,7 +8277,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #919)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -8367,7 +8367,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #929)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -8457,7 +8457,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #939)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -8547,7 +8547,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #949)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -8637,7 +8637,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #959)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -8727,7 +8727,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #969)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -8817,7 +8817,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #979)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -8907,7 +8907,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #989)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -8997,7 +8997,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #999)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -9087,7 +9087,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1009)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -9177,7 +9177,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1019)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -9267,7 +9267,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1029)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -9357,7 +9357,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1039)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -9447,7 +9447,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1049)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -9537,7 +9537,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1059)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -9627,7 +9627,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1069)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -9717,7 +9717,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1079)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -9807,7 +9807,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1089)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -9897,7 +9897,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1099)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -9987,7 +9987,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1109)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -10077,7 +10077,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1119)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -10167,7 +10167,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1129)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -10257,7 +10257,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1139)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -10347,7 +10347,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1149)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -10437,7 +10437,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1159)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -10527,7 +10527,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1169)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -10617,7 +10617,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1179)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -10707,7 +10707,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1189)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -10797,7 +10797,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1199)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -10887,7 +10887,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1209)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -10977,7 +10977,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1219)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -11067,7 +11067,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1229)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -11157,7 +11157,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1239)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -11247,7 +11247,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1249)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -11337,7 +11337,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1259)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -11427,7 +11427,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1269)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -11517,7 +11517,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1279)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -11607,7 +11607,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1289)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -11697,7 +11697,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1299)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -11787,7 +11787,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1309)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -11877,7 +11877,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1319)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -11967,7 +11967,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1329)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -12057,7 +12057,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1339)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -12147,7 +12147,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1349)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -12237,7 +12237,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1359)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -12327,7 +12327,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1369)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -12417,7 +12417,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1379)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -12507,7 +12507,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1389)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -12597,7 +12597,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1399)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -12687,7 +12687,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1409)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -12777,7 +12777,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1419)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -12867,7 +12867,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1429)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -12957,7 +12957,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1439)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -13047,7 +13047,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1449)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -13137,7 +13137,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1459)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -13227,7 +13227,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1469)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -13317,7 +13317,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1479)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -13407,7 +13407,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1489)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -13497,7 +13497,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1499)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -13587,7 +13587,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1509)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -13677,7 +13677,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1519)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -13767,7 +13767,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1529)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -13857,7 +13857,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1539)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -13947,7 +13947,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1549)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -14037,7 +14037,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1559)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -14127,7 +14127,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1569)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -14217,7 +14217,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1579)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -14307,7 +14307,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1589)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -14397,7 +14397,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1599)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -14487,7 +14487,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1609)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -14577,7 +14577,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1619)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -14667,7 +14667,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1629)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -14757,7 +14757,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1639)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -14847,7 +14847,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1649)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -14937,7 +14937,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1659)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -15027,7 +15027,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1669)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -15117,7 +15117,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1679)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -15207,7 +15207,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1689)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -15297,7 +15297,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1699)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -15387,7 +15387,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1709)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -15477,7 +15477,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1719)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -15567,7 +15567,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1729)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -15657,7 +15657,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1739)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -15747,7 +15747,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1749)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -15837,7 +15837,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1759)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -15927,7 +15927,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1769)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -16017,7 +16017,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1779)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -16107,7 +16107,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1789)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -16197,7 +16197,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1799)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -16287,7 +16287,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1809)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -16377,7 +16377,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1819)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -16467,7 +16467,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1829)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -16557,7 +16557,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1839)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -16647,7 +16647,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1849)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -16737,7 +16737,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1859)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -16827,7 +16827,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1869)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -16917,7 +16917,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1879)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -17007,7 +17007,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1889)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -17097,7 +17097,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1899)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -17187,7 +17187,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1909)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -17277,7 +17277,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1919)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -17367,7 +17367,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1929)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -17457,7 +17457,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1939)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -17547,7 +17547,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1949)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -17637,7 +17637,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1959)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -17727,7 +17727,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1969)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -17817,7 +17817,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1979)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -17907,7 +17907,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1989)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -17997,7 +17997,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #1999)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -18087,7 +18087,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2009)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -18177,7 +18177,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2019)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -18267,7 +18267,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2029)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -18357,7 +18357,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2039)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -18447,7 +18447,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2049)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -18537,7 +18537,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2059)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -18627,7 +18627,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2069)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -18717,7 +18717,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2079)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -18807,7 +18807,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2089)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -18897,7 +18897,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2099)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -18987,7 +18987,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2109)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -19077,7 +19077,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2119)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -19167,7 +19167,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2129)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -19257,7 +19257,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2139)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -19347,7 +19347,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2149)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -19437,7 +19437,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2159)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -19527,7 +19527,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2169)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -19617,7 +19617,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2179)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -19707,7 +19707,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2189)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -19797,7 +19797,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2199)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -19887,7 +19887,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2209)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -19977,7 +19977,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2219)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -20067,7 +20067,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2229)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -20157,7 +20157,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2239)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -20247,7 +20247,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2249)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -20337,7 +20337,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2259)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -20427,7 +20427,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2269)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -20517,7 +20517,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2279)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -20607,7 +20607,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2289)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -20697,7 +20697,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2299)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -20787,7 +20787,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2309)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -20877,7 +20877,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2319)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -20967,7 +20967,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2329)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -21057,7 +21057,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2339)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -21147,7 +21147,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2349)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -21237,7 +21237,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2359)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -21327,7 +21327,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2369)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -21417,7 +21417,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2379)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -21507,7 +21507,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2389)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -21597,7 +21597,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2399)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -21687,7 +21687,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2409)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -21777,7 +21777,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2419)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -21867,7 +21867,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2429)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -21957,7 +21957,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2439)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -22047,7 +22047,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2449)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -22137,7 +22137,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2459)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -22227,7 +22227,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2469)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {
@@ -22317,7 +22317,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2479)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -22407,7 +22407,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2489)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "easy"
     },
     {
@@ -22497,7 +22497,7 @@
       question: "Who formulated the Three Laws of Motion in classical mechanics in 1687? (Question Ref #2499)",
       options: ["Galileo Galilei","Sir Isaac Newton","Johannes Kepler","Albert Einstein"],
       answer: 1,
-      explanation: "Isaac Newton published his three laws of motion in Philosophiæ Naturalis Principia Mathematica.",
+      explanation: "Isaac Newton published his three laws of motion in Philosophi Naturalis Principia Mathematica.",
       difficulty: "hard"
     },
     {

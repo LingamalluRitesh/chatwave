@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
@@ -21,7 +21,7 @@
     }
         [data-theme="dark"] {
       --bg-primary: #0e1621;
-      --bg-gradient: #0e1621;
+      --bg-gradient: radial-gradient(circle at 15% 15%, rgba(51, 144, 236, 0.08) 0%, transparent 40%), radial-gradient(circle at 85% 85%, rgba(14, 22, 33, 0.8) 0%, transparent 40%), #0e1621;
       --bg-secondary: #17212b;
       --bg-tertiary: #242f3d;
       --bg-input: #242f3d;
@@ -88,7 +88,7 @@
     input { font-family: inherit; outline: none; border: none; background: none; color: var(--text-primary); width: 100%; }
     .hidden { display: none !important; }
 
-    /* ΓöÇΓöÇ Loading Screen ΓöÇΓöÇ */
+    /* ── Loading Screen ── */
     #loading-screen {
       position: fixed; inset: 0; background: var(--bg-primary);
       display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -106,7 +106,7 @@
     @keyframes spin { to { transform: rotate(360deg); } }
     #loading-msg { font-size: 14px; font-weight: 500; color: var(--text-muted); }
 
-    /* ΓöÇΓöÇ Auth Screen (Glossy Glassmorphic Card) ΓöÇΓöÇ */
+    /* ── Auth Screen (Glossy Glassmorphic Card) ── */
     #auth-screen {
       position: fixed; inset: 0; background: var(--bg-gradient);
       display: flex; align-items: center; justify-content: center; z-index: 9999; padding: 20px;
@@ -170,7 +170,7 @@
     .show-pass-btn { font-size: 16px; opacity: 0.6; flex-shrink: 0; transition: opacity var(--transition); }
     .show-pass-btn:hover { opacity: 1; }
 
-    /* ΓöÇΓöÇ App Layout (Glossy Glassmorphism) ΓöÇΓöÇ */
+    /* ── App Layout (Glossy Glassmorphism) ── */
     #app { display: flex; height: 100vh; width: 100vw; background: var(--bg-gradient); }
     #sidebar {
       width: 380px; min-width: 320px; max-width: 380px;
@@ -233,7 +233,7 @@
     .chat-preview { font-size: 13px; color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 1; font-weight: 400; }
     .unread-badge { background: var(--unread); color: white; font-size: 11px; font-weight: 700; border-radius: 12px; padding: 2px 8px; min-width: 20px; text-align: center; flex-shrink: 0; box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4); }
 
-    /* ΓöÇΓöÇ Main Chat Area ΓöÇΓöÇ */
+    /* ── Main Chat Area ── */
     #main { flex: 1; display: flex; flex-direction: column; min-width: 0; background: var(--bg-gradient); }
     #empty-state { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--text-muted); text-align: center; padding: 40px; }
     #chat-view { display: none; flex-direction: column; flex: 1; height: 100%; }
@@ -300,7 +300,7 @@
     .send-btn { background: var(--accent-gradient); color: white; border: none; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4); }
     .send-btn:hover { transform: scale(1.05); box-shadow: 0 6px 18px rgba(37, 99, 235, 0.6); }
 
-    /* ΓöÇΓöÇ Glossy Modals ΓöÇΓöÇ */
+    /* ── Glossy Modals ── */
     .modal-overlay {
       position: fixed; inset: 0; background: rgba(9, 13, 22, 0.7);
       backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
@@ -328,7 +328,7 @@
     .chip-remove { cursor: pointer; color: var(--text-muted); font-size: 14px; transition: color var(--transition); }
     .chip-remove:hover { color: #f87171; }
 
-    /* ΓöÇΓöÇ Drawer ΓöÇΓöÇ */
+    /* ── Drawer ── */
     .drawer {
       position: fixed; top: 0; left: 0; height: 100vh; width: 360px;
       background: var(--bg-secondary);
@@ -355,7 +355,7 @@
     .field-input { flex: 1; background: var(--bg-input); border: 1px solid var(--border); border-radius: 10px; padding: 8px 12px; font-size: 14px; color: var(--text-primary); }
     .save-btn { background: var(--accent-gradient); color: white; padding: 8px 16px; border-radius: 10px; font-size: 13px; font-weight: 600; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); }
 
-    /* ΓöÇΓöÇ Toast Notifications ΓöÇΓöÇ */
+    /* ── Toast Notifications ── */
     #toast-container { position: fixed; bottom: 24px; right: 24px; z-index: 9999; display: flex; flex-direction: column; gap: 10px; }
     .toast {
       background: var(--bg-modal); border: 1px solid var(--border); border-radius: 14px;
@@ -390,7 +390,7 @@
     <div class="auth-logo">
       <svg viewBox="0 0 60 60" width="64" height="64"><circle cx="30" cy="30" r="30" fill="#2563eb"/><path d="M22 25a1 1 0 0 1 1-1h14a1 1 0 0 1 0 2H23a1 1 0 0 1-1-1zm0 5a1 1 0 0 1 1-1h10a1 1 0 0 1 0 2H23a1 1 0 0 1-1-1zm0 5a1 1 0 0 1 1-1h7a1 1 0 0 1 0 2H23a1 1 0 0 1-1-1z" fill="white"/></svg>
       <h1>ChatWave</h1>
-      <p>Private & Secure Messaging ┬╖ Cloud Powered</p>
+      <p>Private & Secure Messaging · Cloud Powered</p>
     </div>
     <div class="auth-tabs">
       <button class="auth-tab active" id="tab-login">Log In</button>
@@ -409,13 +409,13 @@
       <div class="auth-field">
         <label>Password</label>
         <div class="auth-input-wrap">
-          <span class="auth-input-icon">≡ƒöÆ</span>
+          <span class="auth-input-icon">🔒</span>
           <input type="password" id="login-password" placeholder="Enter your password" />
-          <button class="show-pass-btn" onclick="togglePass('login-password')">≡ƒæü</button>
+          <button class="show-pass-btn" onclick="togglePass('login-password')">👁</button>
         </div>
       </div>
       <div class="auth-error hidden" id="login-error"></div>
-      <button class="auth-btn" id="login-btn" onclick="doLogin()">Log In ΓåÆ</button>
+      <button class="auth-btn" id="login-btn" onclick="doLogin()">Log In →</button>
       <p class="auth-switch-hint">No account? <span class="auth-link" onclick="showTab('register')">Create one</span></p>
     </div>
 
@@ -425,14 +425,14 @@
         <div class="auth-field">
           <label>Full Name *</label>
           <div class="auth-input-wrap">
-            <span class="auth-input-icon">≡ƒÿè</span>
+            <span class="auth-input-icon">😊</span>
             <input type="text" id="reg-name" placeholder="Your name" />
           </div>
         </div>
         <div class="auth-field">
           <label>Phone</label>
           <div class="auth-input-wrap">
-            <span class="auth-input-icon">≡ƒô▒</span>
+            <span class="auth-input-icon">📱</span>
             <input type="tel" id="reg-phone" placeholder="+1 234 567" />
           </div>
         </div>
@@ -448,15 +448,15 @@
         <div class="auth-field">
           <label>Password *</label>
           <div class="auth-input-wrap">
-            <span class="auth-input-icon">≡ƒöÆ</span>
+            <span class="auth-input-icon">🔒</span>
             <input type="password" id="reg-password" placeholder="Min 4 chars" />
-            <button class="show-pass-btn" onclick="togglePass('reg-password')">≡ƒæü</button>
+            <button class="show-pass-btn" onclick="togglePass('reg-password')">👁</button>
           </div>
         </div>
         <div class="auth-field">
           <label>Confirm *</label>
           <div class="auth-input-wrap">
-            <span class="auth-input-icon">≡ƒöÆ</span>
+            <span class="auth-input-icon">🔒</span>
             <input type="password" id="reg-confirm" placeholder="Repeat" />
           </div>
         </div>
@@ -464,12 +464,12 @@
       <div class="auth-field">
         <label>About</label>
         <div class="auth-input-wrap">
-          <span class="auth-input-icon">Γ£Å∩╕Å</span>
+          <span class="auth-input-icon">✏️</span>
           <input type="text" id="reg-about" placeholder="Hey there! I am using ChatWave." />
         </div>
       </div>
       <div class="auth-error hidden" id="register-error"></div>
-      <button class="auth-btn" id="register-btn" onclick="doRegister()">Create Account ΓåÆ</button>
+      <button class="auth-btn" id="register-btn" onclick="doRegister()">Create Account →</button>
       <p class="auth-switch-hint">Have an account? <span class="auth-link" onclick="showTab('login')">Log In</span></p>
     </div>
   </div>
@@ -485,7 +485,7 @@
       </div>
       <span id="sidebar-name" style="font-weight:600;font-size:15px;flex:1"></span>
       <button class="header-icon-btn" id="install-pwa-btn" onclick="installPWA()" title="Install App on Phone">
-        ≡ƒô▒
+        📱
       </button>
       <button class="header-icon-btn" id="notif-btn" onclick="enableNotifications()" title="Enable Laptop Desktop Notifications">
         <svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" fill="currentColor"/></svg>
@@ -517,14 +517,14 @@
   <div id="main">
     <div id="empty-state">
       <svg viewBox="0 0 24 24" fill="var(--accent)" style="width:80px;height:80px;margin-bottom:20px;opacity:0.6"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
-      <h3 style="font-size:22px;font-weight:700;margin-bottom:8px">Welcome to ChatWave ≡ƒÆ¼</h3>
+      <h3 style="font-size:22px;font-weight:700;margin-bottom:8px">Welcome to ChatWave 💬</h3>
       <p style="font-size:14px;color:var(--text-muted);margin-bottom:20px">Real-time cloud messaging powered by Supabase</p>
       <div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:16px;padding:20px 24px;max-width:360px;text-align:left">
-        <div style="font-size:12px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.6px;margin-bottom:12px">≡ƒÆí How to start chatting</div>
+        <div style="font-size:12px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.6px;margin-bottom:12px">💡 How to start chatting</div>
         <div style="font-size:14px;color:var(--text-secondary);display:flex;flex-direction:column;gap:10px">
           <div>1. Click any contact on the left to open a chat</div>
-          <div>2. Open a <b style="color:var(--text-primary)">new tab</b> ΓåÆ login as a different user ΓåÆ chat back!</div>
-          <div>3. Messages sync <b style="color:var(--text-primary)">instantly</b> across all devices ≡ƒÜÇ</div>
+          <div>2. Open a <b style="color:var(--text-primary)">new tab</b> → login as a different user → chat back!</div>
+          <div>3. Messages sync <b style="color:var(--text-primary)">instantly</b> across all devices 🚀</div>
         </div>
       </div>
     </div>
@@ -552,7 +552,7 @@
           <button class="header-icon-btn" id="group-info-btn" onclick="event.stopPropagation();openGroupInfoModal()" title="Group Info" style="display:none">
             <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" fill="currentColor"/></svg>
           </button>
-          <button class="header-icon-btn" id="call-btn" onclick="event.stopPropagation();toast('Calling... ≡ƒô₧','info')">
+          <button class="header-icon-btn" id="call-btn" onclick="event.stopPropagation();toast('Calling... 📞','info')">
             <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" fill="currentColor"/></svg>
           </button>
         </div>
@@ -563,16 +563,16 @@
           <div id="reply-sender" style="font-size:12px;font-weight:700;color:var(--accent)"></div>
           <div id="reply-text" style="font-size:13px;color:var(--text-secondary)"></div>
         </div>
-        <button onclick="clearReply()">Γ£ò</button>
+        <button onclick="clearReply()">✕</button>
       </div>
       <div id="typing-banner" class="hidden" style="padding:6px 16px;font-size:13px;color:var(--text-muted);background:var(--bg-header)">
         <span id="typing-name"></span> is typing...
       </div>
       <div class="chat-input-area">
-        <button class="action-btn" onclick="triggerFileInput('media-file-input')" title="Attach Image, Video, Audio or Document">≡ƒôÄ</button>
+        <button class="action-btn" onclick="triggerFileInput('media-file-input')" title="Attach Image, Video, Audio or Document">📎</button>
         <input type="file" id="media-file-input" accept="image/*,video/*,audio/*,.pdf,.doc,.docx,.txt" class="hidden" onchange="handleAnyFile(this)" />
         <div class="input-box" id="msg-input" contenteditable="true" data-placeholder="Type a message..." onkeydown="handleInputKey(event)"></div>
-        <button class="action-btn" onclick="toggleEmoji()">≡ƒÿè</button>
+        <button class="action-btn" onclick="toggleEmoji()">😊</button>
         <button class="action-btn send-btn" onclick="sendText()">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
         </button>
@@ -586,7 +586,7 @@
   <div class="modal">
     <div class="modal-header">
       <h3>New Group</h3>
-      <button class="close-modal-btn" onclick="closeGroupModal()">Γ£ò</button>
+      <button class="close-modal-btn" onclick="closeGroupModal()">✕</button>
     </div>
     <div id="group-step-1">
       <div class="member-chips" id="member-chips"></div>
@@ -596,21 +596,21 @@
       </div>
       <div id="group-contact-list" style="max-height:260px;overflow-y:auto;padding:0 8px"></div>
       <div style="padding:16px;border-top:1px solid var(--border)">
-        <button class="auth-btn" onclick="goGroupStep2()">Next ΓåÆ</button>
+        <button class="auth-btn" onclick="goGroupStep2()">Next →</button>
       </div>
     </div>
     <div id="group-step-2" class="hidden modal-body">
       <div class="auth-field">
         <label>Group Name *</label>
-        <div class="auth-input-wrap"><span class="auth-input-icon">≡ƒæÑ</span><input type="text" id="group-name" placeholder="Enter group name" /></div>
+        <div class="auth-input-wrap"><span class="auth-input-icon">👥</span><input type="text" id="group-name" placeholder="Enter group name" /></div>
       </div>
       <div class="auth-field">
         <label>Description</label>
-        <div class="auth-input-wrap"><span class="auth-input-icon">≡ƒô¥</span><input type="text" id="group-desc" placeholder="Optional description" /></div>
+        <div class="auth-input-wrap"><span class="auth-input-icon">📝</span><input type="text" id="group-desc" placeholder="Optional description" /></div>
       </div>
       <div style="display:flex;gap:10px;margin-top:8px">
-        <button class="auth-btn" style="background:var(--bg-tertiary);color:var(--text-primary);box-shadow:none" onclick="backGroupStep1()">ΓåÉ Back</button>
-        <button class="auth-btn" onclick="finalCreateGroup()">Create Group ≡ƒÄë</button>
+        <button class="auth-btn" style="background:var(--bg-tertiary);color:var(--text-primary);box-shadow:none" onclick="backGroupStep1()">← Back</button>
+        <button class="auth-btn" onclick="finalCreateGroup()">Create Group 🎉</button>
       </div>
     </div>
   </div>
@@ -621,7 +621,7 @@
   <div class="modal">
     <div class="modal-header">
       <h3>Group Info</h3>
-      <button class="close-modal-btn" onclick="closeGroupInfoModal()">Γ£ò</button>
+      <button class="close-modal-btn" onclick="closeGroupInfoModal()">✕</button>
     </div>
     <div class="modal-body">
       <div style="text-align:center;margin-bottom:16px">
@@ -632,12 +632,12 @@
       <div style="border-top:1px solid var(--border);padding-top:14px;margin-top:14px">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
           <span style="font-size:12px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.6px">Members (<span id="ginfo-count">0</span>)</span>
-          <button class="demo-btn" onclick="openAddMemberModal()" style="font-size:12px">Γ₧ò Add Member</button>
+          <button class="demo-btn" onclick="openAddMemberModal()" style="font-size:12px">➕ Add Member</button>
         </div>
         <div id="ginfo-member-list" style="max-height:220px;overflow-y:auto;display:flex;flex-direction:column;gap:8px"></div>
       </div>
       <div style="border-top:1px solid var(--border);padding-top:16px;margin-top:16px">
-        <button class="auth-btn" style="background:linear-gradient(135deg,#dc2626,#ef4444);box-shadow:none" onclick="leaveCurrentGroup()">≡ƒÜ¬ Leave Group</button>
+        <button class="auth-btn" style="background:linear-gradient(135deg,#dc2626,#ef4444);box-shadow:none" onclick="leaveCurrentGroup()">🚪 Leave Group</button>
       </div>
     </div>
   </div>
@@ -648,7 +648,7 @@
   <div class="modal">
     <div class="modal-header">
       <h3>Add Members to Group</h3>
-      <button class="close-modal-btn" onclick="closeAddMemberModal()">Γ£ò</button>
+      <button class="close-modal-btn" onclick="closeAddMemberModal()">✕</button>
     </div>
     <div class="modal-body">
       <div id="add-member-list" style="max-height:300px;overflow-y:auto;display:flex;flex-direction:column;gap:8px"></div>
@@ -660,8 +660,8 @@
 <div class="modal-overlay hidden" id="forward-modal">
   <div class="modal">
     <div class="modal-header">
-      <h3>Γå¬ Forward Message</h3>
-      <button class="close-modal-btn" onclick="closeForwardModal()">Γ£ò</button>
+      <h3>↪ Forward Message</h3>
+      <button class="close-modal-btn" onclick="closeForwardModal()">✕</button>
     </div>
     <div class="modal-body">
       <div style="padding:4px 0 14px">
@@ -678,8 +678,8 @@
 <div class="modal-overlay hidden" id="edit-msg-modal">
   <div class="modal">
     <div class="modal-header">
-      <h3>Γ£Å Edit Message</h3>
-      <button class="close-modal-btn" onclick="closeEditModal()">Γ£ò</button>
+      <h3>✏ Edit Message</h3>
+      <button class="close-modal-btn" onclick="closeEditModal()">✕</button>
     </div>
     <div class="modal-body">
       <div class="auth-field">
@@ -688,7 +688,7 @@
       </div>
       <div style="display:flex;gap:10px;margin-top:14px">
         <button class="auth-btn" style="background:var(--bg-tertiary);color:var(--text-primary);box-shadow:none" onclick="closeEditModal()">Cancel</button>
-        <button class="auth-btn" onclick="saveEditedMessage()">Save Changes Γ£¿</button>
+        <button class="auth-btn" onclick="saveEditedMessage()">Save Changes ✨</button>
       </div>
     </div>
   </div>
@@ -698,7 +698,7 @@
 <div class="drawer" id="profile-drawer">
   <div class="drawer-header">
     <div style="display:flex;align-items:center;gap:12px">
-      <button class="close-modal-btn" style="color:white" onclick="closeProfile()">Γ£ò</button>
+      <button class="close-modal-btn" style="color:white" onclick="closeProfile()">✕</button>
       <h3 style="font-size:17px;font-weight:700">Profile</h3>
     </div>
     <div style="margin-top:20px;text-align:center">
@@ -734,7 +734,7 @@
       <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
         <input class="field-input" id="old-pw" type="password" placeholder="Current password" />
         <input class="field-input" id="new-pw" type="password" placeholder="New password" />
-        <button class="auth-btn" style="padding:10px" onclick="changePassword()">Update Password ≡ƒöÆ</button>
+        <button class="auth-btn" style="padding:10px" onclick="changePassword()">Update Password 🔒</button>
       </div>
     </div>
     <div style="margin-top:24px">
@@ -744,7 +744,7 @@
 </div>
 
 
-<!-- Telegram Mini-Apps Modal -->
+<!-- Telegram Mini-Apps (TMA) Modal -->
 <div class="modal-overlay hidden" id="cw-miniapps-modal" style="position:fixed;inset:0;background:rgba(0,0,0,0.65);backdrop-filter:blur(8px);z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px">
   <div class="modal-card" style="background:var(--bg-modal);border:1px solid var(--border);border-radius:20px;max-width:540px;width:100%;max-height:88vh;overflow-y:auto;box-shadow:var(--shadow)">
     <div class="modal-header" style="padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between">
@@ -804,12 +804,11 @@
     </div>
   </div>
 </div>
-
 <div id="toast-container"></div>
 
 <script>
 // ================================================================
-//  ChatWave ΓÇö Supabase Backend
+//  ChatWave — Supabase Backend
 // ================================================================
 
 const SUPABASE_URL = 'https://dxraqfnywfivgohyrwey.supabase.co';
@@ -864,7 +863,7 @@ function isOnline(uid) {
 function updateActiveChatPresenceHeader() {
   if (activeContactId) {
     const online = isOnline(activeContactId);
-    document.getElementById('chat-header-status').textContent = online ? '≡ƒƒó Online' : 'ΓÜ½ Offline';
+    document.getElementById('chat-header-status').textContent = online ? '🟢 Online' : '⚫ Offline';
   }
 }
 
@@ -903,23 +902,23 @@ function enableNotifications() {
     return;
   }
   if (Notification.permission === 'granted') {
-    toast('≡ƒöö Notifications are active!', 'info');
-    triggerDesktopNotification('ChatWave Notifications Active ≡ƒöö', 'You will receive desktop popups for new messages!');
+    toast('🔔 Notifications are active!', 'info');
+    triggerDesktopNotification('ChatWave Notifications Active 🔔', 'You will receive desktop popups for new messages!');
     return;
   }
   Notification.requestPermission().then(permission => {
     if (permission === 'granted') {
-      toast('≡ƒöö Desktop notifications enabled!', 'success');
-      triggerDesktopNotification('ChatWave Notifications Active ≡ƒöö', 'You will receive desktop popups for new messages!');
+      toast('🔔 Desktop notifications enabled!', 'success');
+      triggerDesktopNotification('ChatWave Notifications Active 🔔', 'You will receive desktop popups for new messages!');
     } else {
-      toast('ΓÜá∩╕Å Notification permission denied in browser settings', 'error');
+      toast('⚠️ Notification permission denied in browser settings', 'error');
     }
   });
 }
 
 function initDesktopNotifications() {
   if ("Notification" in window && Notification.permission === "granted") {
-    console.log('≡ƒöö Notifications active');
+    console.log('🔔 Notifications active');
   }
 }
 
@@ -945,7 +944,7 @@ async function boot() {
   const session = loadSession();
   const { data: users, error } = await sb.from('cw_users').select('id,username,name,phone,about,avatar_url,color').order('name');
   if (error) {
-    setLoading('Γ¥î Could not reach database. Check your internet connection.');
+    setLoading('❌ Could not reach database. Check your internet connection.');
     return;
   }
   allUsers = (users || []).filter(u => u.username !== 'alice' && u.username !== 'bob' && u.username !== 'carol');
@@ -1014,7 +1013,7 @@ async function doRegister() {
   me = data;
   allUsers.push(data);
   startApp();
-  toast('Account created! Welcome, ' + name + '! ≡ƒÄë', 'success');
+  toast('Account created! Welcome, ' + name + '! 🎉', 'success');
 }
 
 function doLogout() {
@@ -1115,7 +1114,7 @@ function setupRealtime() {
   })
   .subscribe(async (status) => {
     if (status === 'SUBSCRIBED') {
-      console.log('Γ£à Realtime connected & tracking presence');
+      console.log('✅ Realtime connected & tracking presence');
       await realtimeChannel.track({ user_id: me.id, name: me.name, online_at: new Date().toISOString() });
     }
   });
@@ -1183,7 +1182,7 @@ async function handleIncomingMsg(payload) {
     const key = msg.group_id || msg.from_id;
     unreadMap[key] = (unreadMap[key] || 0) + 1;
     const sender = allUsers.find(u => u.id === msg.from_id);
-    toast(`≡ƒÆ¼ ${sender?.name||msg.from_name||'Someone'}: ${(msg.content||'').substring(0,40)}`, 'info');
+    toast(`💬 ${sender?.name||msg.from_name||'Someone'}: ${(msg.content||'').substring(0,40)}`, 'info');
   }
 
   triggerDesktopNotification(
@@ -1225,7 +1224,7 @@ function appendMessageToUI(msg) {
 
   const isOut = msg.from_id === me.id;
   const dir = isOut ? 'out' : 'in';
-  const tick = isOut ? (msg.status==='read'?'<span style="color:#53bdeb;font-weight:bold">Γ£ôΓ£ô</span>':'<span style="opacity:0.6">Γ£ôΓ£ô</span>') : '';
+  const tick = isOut ? (msg.status==='read'?'<span style="color:#53bdeb;font-weight:bold">✓✓</span>':'<span style="opacity:0.6">✓✓</span>') : '';
   const senderLine = !isOut && activeGroupId ? `<div class="bubble-sender">${esc(msg.from_name||'')}</div>` : '';
   const replyLine = msg.reply_to ? `<div style="border-left:3px solid var(--accent);padding:6px 10px;margin-bottom:6px;background:rgba(0,0,0,0.15);border-radius:6px;font-size:12px"><b>Replying to @${esc(msg.reply_to.name||'User')}</b><br><span style="opacity:0.85">${esc(msg.reply_to.text||'')}</span></div>` : '';
   const editedTag = msg.edited ? '<span style="font-size:10px;opacity:0.6;margin-right:4px">(edited)</span>' : '';
@@ -1235,7 +1234,7 @@ function appendMessageToUI(msg) {
   else if (msg.type==='image') content = `<img src="${msg.url}" style="max-width:260px;border-radius:12px;display:block;margin-bottom:4px;cursor:pointer" onclick="viewMedia('${msg.url}')" />`;
   else if (msg.type==='video') content = `<video src="${msg.url}" controls style="max-width:260px;border-radius:12px;display:block;margin-bottom:4px"></video>`;
   else if (msg.type==='audio') content = `<audio src="${msg.url}" controls style="max-width:260px;margin-bottom:4px"></audio>`;
-  else if (msg.type==='document') content = `<div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:rgba(255,255,255,0.08);border-radius:10px;margin-bottom:4px">≡ƒôä <span style="flex:1;font-weight:600;font-size:13px;word-break:break-all">${esc(msg.file_name||'Document')}</span> <a href="${msg.url}" download="${esc(msg.file_name||'file')}" style="color:var(--accent);font-weight:700;text-decoration:none">Γ¼ç Save</a></div>`;
+  else if (msg.type==='document') content = `<div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:rgba(255,255,255,0.08);border-radius:10px;margin-bottom:4px">📄 <span style="flex:1;font-weight:600;font-size:13px;word-break:break-all">${esc(msg.file_name||'Document')}</span> <a href="${msg.url}" download="${esc(msg.file_name||'file')}" style="color:var(--accent);font-weight:700;text-decoration:none">⬇ Save</a></div>`;
   
   const reactions = Array.isArray(msg.reactions) && msg.reactions.length ? `<div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:4px">${msg.reactions.map(r=>`<span style="background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.3);border-radius:12px;padding:2px 8px;font-size:13px">${r.emoji}${r.count>1?' '+r.count:''}</span>`).join('')}</div>` : '';
   
@@ -1320,7 +1319,7 @@ async function openChat(id, type) {
     const c = allUsers.find(u => u.id === id);
     if (!c) return;
     const online = isOnline(id);
-    updateHeader(c.name, online ? '≡ƒƒó Online' : 'ΓÜ½ Offline', c.avatar_url, c.color, true, false);
+    updateHeader(c.name, online ? '🟢 Online' : '⚫ Offline', c.avatar_url, c.color, true, false);
     unreadMap[id] = 0;
     await sb.from('cw_messages').update({status:'read'}).eq('from_id',id).eq('to_id',me.id).neq('status','read');
   }
@@ -1366,7 +1365,7 @@ async function renderMessages() {
     msgs = data || [];
   }
   if (!msgs.length) {
-    area.innerHTML = `<div style="text-align:center;color:var(--text-muted);padding:40px;font-size:14px">No messages yet. Say hi! ≡ƒæï</div>`;
+    area.innerHTML = `<div style="text-align:center;color:var(--text-muted);padding:40px;font-size:14px">No messages yet. Say hi! 👋</div>`;
     return;
   }
   if (msgs.length > 0) {
@@ -1427,8 +1426,8 @@ async function quickReact(msgId) {
   const {data:msgs} = await sb.from('cw_messages').select('*').eq('id',msgId).single();
   if (!msgs) return;
   const reactions = Array.isArray(msgs.reactions) ? msgs.reactions : [];
-  const ex = reactions.find(r => r.emoji === 'Γ¥ñ∩╕Å');
-  if (ex) ex.count = (ex.count||1)+1; else reactions.push({emoji:'Γ¥ñ∩╕Å',count:1});
+  const ex = reactions.find(r => r.emoji === '❤️');
+  if (ex) ex.count = (ex.count||1)+1; else reactions.push({emoji:'❤️',count:1});
   await sb.from('cw_messages').update({reactions}).eq('id',msgId);
   renderMessages();
 }
@@ -1440,13 +1439,13 @@ function showCtx(e, msgId) {
   const isMine = msg && msg.from_id === me.id;
 
   const actions = [
-    {label:'Γå⌐ Reply', fn:()=>setReply(msgId)},
-    {label:'Γå¬ Forward', fn:()=>openForwardModal(msgId)},
-    {label:'≡ƒôï Copy Text', fn:()=>{
+    {label:'↩ Reply', fn:()=>setReply(msgId)},
+    {label:'↪ Forward', fn:()=>openForwardModal(msgId)},
+    {label:'📋 Copy Text', fn:()=>{
       const text = msg?.content || '';
       if (text) {
         navigator.clipboard.writeText(text);
-        toast('Message copied to clipboard! ≡ƒôï', 'success');
+        toast('Message copied to clipboard! 📋', 'success');
       } else {
         toast('Nothing to copy', 'info');
       }
@@ -1454,11 +1453,11 @@ function showCtx(e, msgId) {
   ];
 
   if (isMine && msg && msg.type === 'text') {
-    actions.push({label:'Γ£Å Edit Message', fn:()=>openEditModal(msgId)});
+    actions.push({label:'✏ Edit Message', fn:()=>openEditModal(msgId)});
   }
 
-  actions.push({label:'Γ¥ñ∩╕Å React', fn:()=>quickReact(msgId)});
-  actions.push({label:'≡ƒùæ Delete Message', fn:()=>deleteMsg(msgId)});
+  actions.push({label:'❤️ React', fn:()=>quickReact(msgId)});
+  actions.push({label:'🗑 Delete Message', fn:()=>deleteMsg(msgId)});
 
   const menu = document.createElement('div');
   menu.id='ctx-menu';
@@ -1511,7 +1510,7 @@ function openForwardModal(msgId) {
           </div>
           <div style="font-weight:600;font-size:14px">${esc(c.name)}</div>
         </div>
-        <button class="save-btn" onclick="confirmForward('${c.id}', 'contact')">Γå¬ Send</button>
+        <button class="save-btn" onclick="confirmForward('${c.id}', 'contact')">↪ Send</button>
       </div>`;
   });
   myGroups.forEach(g => {
@@ -1526,7 +1525,7 @@ function openForwardModal(msgId) {
             <div style="font-size:11px;color:var(--accent)">Group</div>
           </div>
         </div>
-        <button class="save-btn" onclick="confirmForward('${g.id}', 'group')">Γå¬ Send</button>
+        <button class="save-btn" onclick="confirmForward('${g.id}', 'group')">↪ Send</button>
       </div>`;
   });
 
@@ -1564,7 +1563,7 @@ async function confirmForward(targetId, targetType) {
     ? allGroups.find(g=>g.id===targetId)?.name 
     : allUsers.find(u=>u.id===targetId)?.name;
 
-  toast(`Forwarded to ${destName||'chat'}! Γå¬`, 'success');
+  toast(`Forwarded to ${destName||'chat'}! ↪`, 'success');
   if ((targetType==='group' && activeGroupId===targetId) || (targetType==='contact' && activeContactId===targetId)) {
     if (inserted) appendMessageToUI(inserted);
   }
@@ -1594,7 +1593,7 @@ async function saveEditedMessage() {
   if (error) { toast('Edit failed: ' + error.message, 'error'); return; }
 
   closeEditModal();
-  toast('Message updated! Γ£¿', 'success');
+  toast('Message updated! ✨', 'success');
   await renderMessages();
   renderChatList();
 }
@@ -1664,7 +1663,7 @@ function renderGroupContacts(q) {
   document.getElementById('group-contact-list').innerHTML = contacts.map(c => {
     const sel = groupMembers.has(c.id);
     return `<div class="group-contact-item${sel?' selected':''}" onclick="toggleMember('${c.id}')">
-      <div class="group-check">${sel?'Γ£ô':''}</div>
+      <div class="group-check">${sel?'✓':''}</div>
       <div class="chat-avatar" style="width:38px;height:38px;font-size:14px;background:linear-gradient(135deg,${c.color||'#2563eb'},${lighten(c.color||'#2563eb')})">
         <span>${getInitials(c.name)}</span>
       </div>
@@ -1680,7 +1679,7 @@ function toggleMember(id) {
 function renderChips() {
   document.getElementById('member-chips').innerHTML = Array.from(groupMembers).map(id=>{
     const c = allUsers.find(u=>u.id===id);
-    return c ? `<div class="chip">${esc(c.name.split(' ')[0])}<span class="chip-remove" onclick="toggleMember('${id}')">Γ£ò</span></div>` : '';
+    return c ? `<div class="chip">${esc(c.name.split(' ')[0])}<span class="chip-remove" onclick="toggleMember('${id}')">✕</span></div>` : '';
   }).join('');
 }
 function goGroupStep2() {
@@ -1709,12 +1708,12 @@ async function finalCreateGroup() {
     from_name: me.name,
     group_id: g.id,
     type: 'text',
-    content: `≡ƒôó ${me.name} created group "${name}"`
+    content: `📢 ${me.name} created group "${name}"`
   });
 
   await loadAllGroups();
   closeGroupModal();
-  toast(`Group "${name}" created! ≡ƒÄë`,'success');
+  toast(`Group "${name}" created! 🎉`,'success');
   openChat(g.id,'group');
 }
 
@@ -1748,7 +1747,7 @@ function openGroupInfoModal() {
       </div>
       <div style="flex:1">
         <div style="font-weight:600;font-size:14px">${esc(u.name)} ${isMe?'<span style="font-size:11px;color:var(--accent)">(You)</span>':''} ${isGroupAdmin?'<span style="font-size:10px;background:rgba(59,130,246,0.2);color:#93c5fd;padding:2px 6px;border-radius:6px;font-weight:700;margin-left:4px">Admin</span>':''}</div>
-        <div style="font-size:11px;color:var(--text-muted)">${online ? '≡ƒƒó Online' : 'ΓÜ½ Offline'}</div>
+        <div style="font-size:11px;color:var(--text-muted)">${online ? '🟢 Online' : '⚫ Offline'}</div>
       </div>
       ${removeBtn}
     </div>`;
@@ -1764,7 +1763,7 @@ function openGroupInfoModal() {
     parent.appendChild(adminActionsEl);
   }
   adminActionsEl.innerHTML = isAdmin
-    ? `<button class="auth-btn" style="background:linear-gradient(135deg,#dc2626,#991b1b);box-shadow:none;margin-top:8px" onclick="deleteGroupAdmin()">≡ƒùæ∩╕Å Delete Group (Admin)</button>`
+    ? `<button class="auth-btn" style="background:linear-gradient(135deg,#dc2626,#991b1b);box-shadow:none;margin-top:8px" onclick="deleteGroupAdmin()">🗑️ Delete Group (Admin)</button>`
     : '';
 
   document.getElementById('group-info-modal').classList.remove('hidden');
@@ -1794,7 +1793,7 @@ function openAddMemberModal() {
             <div style="font-size:12px;color:var(--text-muted)">@${u.username}</div>
           </div>
         </div>
-        <button class="save-btn" onclick="addMemberToGroup('${u.id}')">Γ₧ò Add</button>
+        <button class="save-btn" onclick="addMemberToGroup('${u.id}')">➕ Add</button>
       </div>
     `).join('');
   }
@@ -1816,13 +1815,13 @@ async function addMemberToGroup(userId) {
     from_name: me.name,
     group_id: activeGroupId,
     type: 'text',
-    content: `≡ƒôó ${me.name} added ${targetUser?.name || 'a member'} to the group`
+    content: `📢 ${me.name} added ${targetUser?.name || 'a member'} to the group`
   });
 
   await loadAllGroups();
   closeAddMemberModal();
   openGroupInfoModal();
-  toast(`Added ${targetUser?.name || 'member'} to group! ≡ƒÄë`, 'success');
+  toast(`Added ${targetUser?.name || 'member'} to group! 🎉`, 'success');
 }
 
 async function removeMemberFromGroup(userId) {
@@ -1837,7 +1836,7 @@ async function removeMemberFromGroup(userId) {
     from_name: me.name,
     group_id: activeGroupId,
     type: 'text',
-    content: `≡ƒôó Admin ${me.name} removed ${targetUser?.name || 'a member'} from the group`
+    content: `📢 Admin ${me.name} removed ${targetUser?.name || 'a member'} from the group`
   });
   await loadAllGroups();
   openGroupInfoModal();
@@ -1869,7 +1868,7 @@ async function leaveCurrentGroup() {
     from_name: me.name,
     group_id: activeGroupId,
     type: 'text',
-    content: `≡ƒôó ${me.name} left the group`
+    content: `📢 ${me.name} left the group`
   });
   closeGroupInfoModal();
   activeGroupId = null;
@@ -1904,7 +1903,7 @@ async function saveField(field) {
   me[field]=val; saveSession(me);
   document.getElementById('p-'+field).textContent=val;
   document.getElementById(field+'-edit').classList.add('hidden');
-  toast(field.charAt(0).toUpperCase()+field.slice(1)+' updated Γ£ô','success');
+  toast(field.charAt(0).toUpperCase()+field.slice(1)+' updated ✓','success');
 }
 async function changePassword() {
   const oldPw = document.getElementById('old-pw').value;
@@ -1915,7 +1914,7 @@ async function changePassword() {
   await sb.from('cw_users').update({password_hash:simpleHash(newPw)}).eq('id',me.id);
   document.getElementById('old-pw').value='';
   document.getElementById('new-pw').value='';
-  toast('Password updated! ≡ƒöÆ','success');
+  toast('Password updated! 🔒','success');
 }
 
 // ---- Filter / Search ----
@@ -1950,7 +1949,7 @@ function toast(msg,type='info') {
 }
 
 // ---- Emoji ----
-const EMOJIS=[...'≡ƒÿÇ≡ƒÿâ≡ƒÿä≡ƒÿü≡ƒÿå≡ƒÿà≡ƒñú≡ƒÿé≡ƒÖé≡ƒÿè≡ƒÿç≡ƒÑ░≡ƒÿì≡ƒÿÿ≡ƒÿï≡ƒÿ¢≡ƒÿ£≡ƒñ¬≡ƒÿ¥≡ƒÿÄ≡ƒñ⌐≡ƒÿÅ≡ƒÿÆ≡ƒÖä≡ƒÿ¼≡ƒÿî≡ƒÿö≡ƒÿ┤≡ƒÿ╖≡ƒñÆ≡ƒñº≡ƒÿ╡≡ƒñ»≡ƒÿò≡ƒÿƒ≡ƒÿ«≡ƒÿ▓≡ƒÿ│≡ƒÑ║≡ƒÿª≡ƒÿº≡ƒÿ¿≡ƒÿ░≡ƒÿÑ≡ƒÿó≡ƒÿ¡≡ƒÿ▒≡ƒÿû≡ƒÿ⌐≡ƒÿ½≡ƒÿñ≡ƒÿí≡ƒÿá≡ƒñ¼≡ƒÿê≡ƒÆÇ≡ƒÆ⌐≡ƒñí≡ƒæ╗≡ƒæ╜≡ƒñû≡ƒÆïΓ¥ñ∩╕Å≡ƒºí≡ƒÆ¢≡ƒÆÜ≡ƒÆÖ≡ƒÆ£≡ƒûñ≡ƒÆö≡ƒÆò≡ƒÆ₧≡ƒÆù≡ƒÆû≡ƒÆÿ≡ƒÆ¥≡ƒæì≡ƒæÄ≡ƒæÅ≡ƒÖî≡ƒÖÅΓ£è≡ƒÆ¬≡ƒæïΓ£ï≡ƒÆâ≡ƒò║≡ƒöÑΓ£¿Γ¡É≡ƒîƒ≡ƒÄë≡ƒÄè≡ƒÅå≡ƒÜÇ'];
+const EMOJIS=[...'😀😃😄😁😆😅🤣😂🙂😊😇🥰😍😘😋😛😜🤪😝😎🤩😏😒🙄😬😌😔😴😷🤒🤧😵🤯😕😟😮😲😳🥺😦😧😨😰😥😢😭😱😖😩😫😤😡😠🤬😈💀💩🤡👻👽🤖💋❤️🧡💛💚💙💜🖤💔💕💞💗💖💘💝👍👎👏🙌🙏✊💪👋✋💃🕺🔥✨⭐🌟🎉🎊🏆🚀'];
 function toggleEmoji() {
   let picker=document.getElementById('emoji-picker-popup');
   if (picker) { picker.remove(); return; }
@@ -2003,7 +2002,7 @@ function setBtnLoading(id,loading) {
   const btn=document.getElementById(id);
   if (!btn) return;
   btn.disabled=loading;
-  btn.textContent=loading?'Please wait...':btn.id==='login-btn'?'Log In ΓåÆ':'Create Account ΓåÆ';
+  btn.textContent=loading?'Please wait...':btn.id==='login-btn'?'Log In →':'Create Account →';
 }
 
 // ---- Utils ----
@@ -2026,8 +2025,8 @@ function fmtDate(ts) {
 }
 function getPreview(msg) {
   if (msg.type==='text') return esc((msg.content||'').substring(0,48));
-  if (msg.type==='image') return '≡ƒô╖ Photo';
-  if (msg.type==='document') return `≡ƒôä ${msg.file_name||'File'}`;
+  if (msg.type==='image') return '📷 Photo';
+  if (msg.type==='document') return `📄 ${msg.file_name||'File'}`;
   return '';
 }
 function scrollBottom() { const a=document.getElementById('messages-area'); if(a) a.scrollTop=a.scrollHeight; }
@@ -2045,13 +2044,13 @@ window.addEventListener('beforeinstallprompt', (e) => {
 
 async function installPWA() {
   if (!deferredPrompt) {
-    toast('≡ƒô▒ To install: Open Chrome/Safari menu and tap "Add to Home Screen"', 'info');
+    toast('📱 To install: Open Chrome/Safari menu and tap "Add to Home Screen"', 'info');
     return;
   }
   deferredPrompt.prompt();
   const { outcome } = await deferredPrompt.userChoice;
   if (outcome === 'accepted') {
-    toast('ChatWave App Installed! ≡ƒÄë', 'success');
+    toast('ChatWave App Installed! 🎉', 'success');
   }
   deferredPrompt = null;
 }
@@ -2073,12 +2072,73 @@ document.addEventListener('DOMContentLoaded', () => {
       const uid = e.key.replace('cw_pres_','');
       if (uid === activeContactId) {
         const online = isOnline(uid);
-        document.getElementById('chat-header-status').textContent = online ? '≡ƒƒó Online' : 'ΓÜ½ Offline';
+        document.getElementById('chat-header-status').textContent = online ? '🟢 Online' : '⚫ Offline';
       }
     }
   });
   boot();
 });
+
+  // ── Mini-Apps & Whiteboard Handlers ──
+  function openMiniAppsModal() {
+    document.getElementById('cw-miniapps-modal').classList.remove('hidden');
+    switchMiniApp('chess');
+  }
+  function closeMiniAppsModal() {
+    document.getElementById('cw-miniapps-modal').classList.add('hidden');
+  }
+  function switchMiniApp(appName, btn) {
+    if (btn) {
+      document.querySelectorAll('.cw-miniapps-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+    const host = document.getElementById('cw-miniapp-host');
+    if (!host) return;
+    host.innerHTML = '<div id="cw-' + appName + '-container"></div>';
+    if (appName === 'chess' && window.ChatWaveChess) ChatWaveChess.render('cw-chess-container');
+    else if (appName === 'tictactoe' && window.ChatWaveTicTacToe) ChatWaveTicTacToe.render('cw-tictactoe-container');
+    else if (appName === 'wordle' && window.ChatWaveWordle) ChatWaveWordle.render('cw-wordle-container');
+    else if (appName === '2048' && window.ChatWave2048) ChatWave2048.render('cw-2048-container');
+    else if (appName === 'trivia' && window.ChatWaveTriviaGame) ChatWaveTriviaGame.start('all', 'cw-trivia-container');
+  }
+  function openWhiteboardModal() {
+    document.getElementById('cw-whiteboard-modal').classList.remove('hidden');
+    setTimeout(() => {
+      if (window.ChatWaveWhiteboard) ChatWaveWhiteboard.init('cw-whiteboard-canvas');
+    }, 50);
+  }
+  function closeWhiteboardModal() {
+    document.getElementById('cw-whiteboard-modal').classList.add('hidden');
+  }
+  function sendWhiteboardToChat() {
+    if (window.ChatWaveWhiteboard) {
+      const dataUrl = ChatWaveWhiteboard.toDataURL();
+      if (dataUrl && typeof sendMsg === 'function') {
+        sendMsg({ type: 'image', url: dataUrl, content: '🎨 Whiteboard Drawing' });
+        closeWhiteboardModal();
+        toast('Drawing sent to chat! 🎨', 'success');
+      }
+    }
+  }
+  function openSoundboardModal() {
+    document.getElementById('cw-soundboard-modal').classList.remove('hidden');
+  }
+  function closeSoundboardModal() {
+    document.getElementById('cw-soundboard-modal').classList.add('hidden');
+  }
+  function triggerSoundFX(snd) {
+    if (window.ChatWaveSound) {
+      if (snd === 'pop') ChatWaveSound.playPop();
+      else if (snd === 'laser') ChatWaveSound.playLaser();
+      else if (snd === 'bell') ChatWaveSound.playBell();
+      else if (snd === 'chime') ChatWaveSound.playChime();
+      else if (snd === 'horn') ChatWaveSound.playAirhorn();
+      else if (snd === 'bass') ChatWaveSound.playBassDrop();
+      else if (snd === 'win') ChatWaveSound.playVictory();
+      else if (snd === 'lose') ChatWaveSound.playDefeat();
+    }
+    toast('Played: ' + snd.toUpperCase() + ' 🔊', 'info');
+  }
 </script>
   <script src="src/data/emojis.js"></script>
   <script src="src/data/stickers.js"></script>
