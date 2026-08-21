@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-  <meta name="theme-color" content="#17212b" />
+  <meta name="theme-color" content="#111b21" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="ChatWave" />
-  <title>ChatWave 3.0 – Telegram Web Experience</title>
+  <title>ChatWave ΓÇô Mobile Messaging App</title>
   <link rel="manifest" href="/manifest.json" />
   <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/1384/1384055.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -19,59 +19,59 @@
       --font: 'Inter', -apple-system, sans-serif;
       --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-        [data-theme="dark"] {
-      --bg-primary: #0e1621;
-      --bg-gradient: #0e1621;
-      --bg-secondary: #17212b;
-      --bg-tertiary: #242f3d;
-      --bg-input: #242f3d;
-      --bg-msg-in: #182533;
-      --bg-msg-out: #2b5278;
-      --text-msg-out: #ffffff;
-      --text-msg-out-time: rgba(255, 255, 255, 0.7);
-      --bg-hover: #202b36;
-      --bg-sidebar: #17212b;
-      --bg-header: #17212b;
-      --bg-modal: #17212b;
-      --bg-auth: #17212b;
-      --text-primary: #f5f5f5;
-      --text-secondary: #708499;
-      --text-muted: #64788c;
-      --border: rgba(255, 255, 255, 0.08);
-      --border-glow: rgba(51, 144, 236, 0.4);
-      --accent: #3390ec;
-      --accent-dark: #2481cc;
-      --accent-gradient: linear-gradient(135deg, #3390ec, #50b0f7);
-      --shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.6);
-      --glass-blur: blur(20px);
-      --unread: #3390ec;
+    [data-theme="dark"] {
+      --bg-primary: #111b21;
+      --bg-gradient: radial-gradient(circle at 15% 15%, rgba(0, 168, 132, 0.12) 0%, transparent 40%), radial-gradient(circle at 85% 85%, rgba(11, 20, 26, 0.8) 0%, transparent 40%), #111b21;
+      --bg-secondary: #111b21;
+      --bg-tertiary: #202c33;
+      --bg-input: #2a3942;
+      --bg-msg-in: #202c33;
+      --bg-msg-out: #005c4b;
+      --text-msg-out: #e9edef;
+      --text-msg-out-time: rgba(233, 237, 239, 0.7);
+      --bg-hover: #202c33;
+      --bg-sidebar: #111b21;
+      --bg-header: #202c33;
+      --bg-modal: #222e35;
+      --bg-auth: #111b21;
+      --text-primary: #e9edef;
+      --text-secondary: #8696a0;
+      --text-muted: #667781;
+      --border: rgba(134, 150, 160, 0.15);
+      --border-glow: rgba(0, 168, 132, 0.4);
+      --accent: #00a884;
+      --accent-dark: #008f6f;
+      --accent-gradient: linear-gradient(135deg, #00a884, #029070);
+      --shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.7), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+      --glass-blur: blur(20px) saturate(180%);
+      --unread: #00a884;
     }
     [data-theme="light"] {
-      --bg-primary: #f0f2f5;
-      --bg-gradient: #f0f2f5;
+      --bg-primary: #efeae2;
+      --bg-gradient: #efeae2;
       --bg-secondary: #ffffff;
-      --bg-tertiary: #f4f4f5;
-      --bg-input: #f4f4f5;
+      --bg-tertiary: #f0f2f5;
+      --bg-input: #ffffff;
       --bg-msg-in: #ffffff;
-      --bg-msg-out: #e1f3fb;
-      --text-msg-out: #111827;
-      --text-msg-out-time: #6b7280;
-      --bg-hover: #f1f5f9;
+      --bg-msg-out: #d9fdd3;
+      --text-msg-out: #111b21;
+      --text-msg-out-time: #667781;
+      --bg-hover: #f5f6f6;
       --bg-sidebar: #ffffff;
-      --bg-header: #ffffff;
+      --bg-header: #f0f2f5;
       --bg-modal: #ffffff;
       --bg-auth: #ffffff;
-      --text-primary: #111827;
-      --text-secondary: #64748b;
-      --text-muted: #94a3b8;
+      --text-primary: #111b21;
+      --text-secondary: #54656f;
+      --text-muted: #8696a0;
       --border: rgba(0, 0, 0, 0.08);
-      --border-glow: rgba(51, 144, 236, 0.3);
-      --accent: #3390ec;
-      --accent-dark: #2481cc;
-      --accent-gradient: linear-gradient(135deg, #3390ec, #50b0f7);
-      --shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.08);
-      --glass-blur: blur(20px);
-      --unread: #3390ec;
+      --border-glow: rgba(0, 168, 132, 0.3);
+      --accent: #00a884;
+      --accent-dark: #008f6f;
+      --accent-gradient: linear-gradient(135deg, #00a884, #029070);
+      --shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
+      --glass-blur: blur(20px) saturate(180%);
+      --unread: #25d366;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html, body {
@@ -374,7 +374,6 @@
     ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.25); }
     @media(max-width:768px){ #sidebar { width: 100vw; max-width: 100vw; } #sidebar.hide { display: none; } #main { width: 100vw; } }
   </style>
-  <link rel="stylesheet" href="src/styles/miniapps.css" />
 </head>
 <body>
 
@@ -543,9 +542,6 @@
           <div id="chat-header-status" style="font-size:12px;color:var(--text-muted)"></div>
         </div>
         <div class="chat-header-actions">
-          <button class="icon-btn" onclick="openMiniAppsModal()" title="Mini-Apps & Games" style="font-size:18px">🎮</button>
-          <button class="icon-btn" onclick="openWhiteboardModal()" title="Whiteboard" style="font-size:18px">🎨</button>
-          <button class="icon-btn" onclick="openSoundboardModal()" title="Soundboard FX" style="font-size:18px">🔊</button>
           <button class="header-icon-btn" id="clear-chat-btn" onclick="event.stopPropagation();clearCurrentChat()" title="Clear Chat">
             <svg viewBox="0 0 24 24"><path d="M15 16h4v2h-4zm0-8h7v2h-7zm0 4h5v2h-5zM3 18c0 1.1.9 2 2 2h6c1.1 0 2-.9 2-2V8H3v10zM14 5h-3l-1-1H6L5 5H2v2h12z" fill="currentColor"/></svg>
           </button>
@@ -739,68 +735,6 @@
     </div>
     <div style="margin-top:24px">
       <button class="auth-btn" style="background:linear-gradient(135deg,#dc2626,#ef4444);box-shadow:0 4px 16px rgba(239,68,68,0.35)" onclick="doLogout()">Logout</button>
-    </div>
-  </div>
-</div>
-
-
-<!-- Telegram Mini-Apps Modal -->
-<div class="modal-overlay hidden" id="cw-miniapps-modal" style="position:fixed;inset:0;background:rgba(0,0,0,0.65);backdrop-filter:blur(8px);z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px">
-  <div class="modal-card" style="background:var(--bg-modal);border:1px solid var(--border);border-radius:20px;max-width:540px;width:100%;max-height:88vh;overflow-y:auto;box-shadow:var(--shadow)">
-    <div class="modal-header" style="padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between">
-      <h3 style="font-size:16px;font-weight:700">🎮 Telegram Mini-Apps & Games</h3>
-      <button class="icon-btn" onclick="closeMiniAppsModal()">✕</button>
-    </div>
-    <div class="cw-miniapps-nav" style="padding:10px 16px 0;margin-bottom:0">
-      <button class="cw-miniapps-tab active" onclick="switchMiniApp('chess', this)">♟️ Chess</button>
-      <button class="cw-miniapps-tab" onclick="switchMiniApp('tictactoe', this)">🎮 Tic-Tac-Toe</button>
-      <button class="cw-miniapps-tab" onclick="switchMiniApp('wordle', this)">🔤 Wordle</button>
-      <button class="cw-miniapps-tab" onclick="switchMiniApp('2048', this)">🔢 2048</button>
-      <button class="cw-miniapps-tab" onclick="switchMiniApp('trivia', this)">🏆 Trivia Quiz</button>
-    </div>
-    <div style="padding:16px 20px" id="cw-miniapp-host"></div>
-  </div>
-</div>
-
-<!-- Collaborative Whiteboard Modal -->
-<div class="modal-overlay hidden" id="cw-whiteboard-modal" style="position:fixed;inset:0;background:rgba(0,0,0,0.65);backdrop-filter:blur(8px);z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px">
-  <div class="modal-card" style="background:var(--bg-modal);border:1px solid var(--border);border-radius:20px;max-width:850px;width:95vw;height:85vh;box-shadow:var(--shadow);display:flex;flex-direction:column">
-    <div class="modal-header" style="padding:12px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
-      <h3 style="font-size:16px;font-weight:700">🎨 Collaborative Whiteboard</h3>
-      <div style="display:flex;align-items:center;gap:6px">
-        <button class="cw-btn-mini" onclick="ChatWaveWhiteboard.setTool('brush')">🖌️ Brush</button>
-        <button class="cw-btn-mini" onclick="ChatWaveWhiteboard.setTool('eraser')">🧹 Eraser</button>
-        <button class="cw-btn-mini" onclick="ChatWaveWhiteboard.setTool('rect')">⬜ Box</button>
-        <button class="cw-btn-mini" onclick="ChatWaveWhiteboard.setTool('circle')">⭕ Circle</button>
-        <input type="color" value="#3390ec" onchange="ChatWaveWhiteboard.setColor(this.value)" style="width:28px;height:28px;border-radius:50%;cursor:pointer" />
-        <button class="cw-btn-mini" onclick="ChatWaveWhiteboard.undo()">↩ Undo</button>
-        <button class="cw-btn-mini" onclick="ChatWaveWhiteboard.clear()">🗑️ Clear</button>
-        <button class="cw-btn-primary" style="padding:6px 14px;font-size:12px" onclick="sendWhiteboardToChat()">Send to Chat 💬</button>
-        <button class="icon-btn" onclick="closeWhiteboardModal()">✕</button>
-      </div>
-    </div>
-    <div style="flex:1;position:relative;background:#0e1621">
-      <canvas id="cw-whiteboard-canvas" style="width:100%;height:100%;display:block;touch-action:none;cursor:crosshair"></canvas>
-    </div>
-  </div>
-</div>
-
-<!-- Soundboard FX Modal -->
-<div class="modal-overlay hidden" id="cw-soundboard-modal" style="position:fixed;inset:0;background:rgba(0,0,0,0.65);backdrop-filter:blur(8px);z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px">
-  <div class="modal-card" style="background:var(--bg-modal);border:1px solid var(--border);border-radius:20px;max-width:440px;width:100%;box-shadow:var(--shadow)">
-    <div class="modal-header" style="padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between">
-      <h3 style="font-size:16px;font-weight:700">🔊 Soundboard FX</h3>
-      <button class="icon-btn" onclick="closeSoundboardModal()">✕</button>
-    </div>
-    <div style="padding:16px 20px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px">
-      <button class="cw-trivia-opt" onclick="triggerSoundFX('pop')">🎈 Pop Bubble</button>
-      <button class="cw-trivia-opt" onclick="triggerSoundFX('laser')">🔫 Laser Zap</button>
-      <button class="cw-trivia-opt" onclick="triggerSoundFX('bell')">🔔 Notification Bell</button>
-      <button class="cw-trivia-opt" onclick="triggerSoundFX('chime')">✨ Magic Chime</button>
-      <button class="cw-trivia-opt" onclick="triggerSoundFX('horn')">🎺 Airhorn Meme</button>
-      <button class="cw-trivia-opt" onclick="triggerSoundFX('bass')">🔊 Bass Drop</button>
-      <button class="cw-trivia-opt" onclick="triggerSoundFX('win')">🏆 Victory Fanfare</button>
-      <button class="cw-trivia-opt" onclick="triggerSoundFX('lose')">💀 Defeat Oof</button>
     </div>
   </div>
 </div>
@@ -2080,29 +2014,5 @@ document.addEventListener('DOMContentLoaded', () => {
   boot();
 });
 </script>
-  <script src="src/data/emojis.js"></script>
-  <script src="src/data/stickers.js"></script>
-  <script src="src/data/soundPresets.js"></script>
-  <script src="src/data/triviaQuestions.js"></script>
-  <script src="src/data/wallpapers.js"></script>
-  <script src="src/core/StateStore.js"></script>
-  <script src="src/core/EventBus.js"></script>
-  <script src="src/core/Router.js"></script>
-  <script src="src/core/SoundSynthesizer.js"></script>
-  <script src="src/core/ParticleEffects.js"></script>
-  <script src="src/core/I18nEngine.js"></script>
-  <script src="src/components/MiniApps/ChessGame.js"></script>
-  <script src="src/components/MiniApps/TicTacToeGame.js"></script>
-  <script src="src/components/MiniApps/WordleGame.js"></script>
-  <script src="src/components/MiniApps/Game2048.js"></script>
-  <script src="src/components/MiniApps/TriviaQuizGame.js"></script>
-  <script src="src/components/MiniApps/CodePlayground.js"></script>
-  <script src="src/components/Whiteboard/WhiteboardComponent.js"></script>
-  <script src="src/components/AIAssistant/AIAssistantComponent.js"></script>
-  <script src="src/components/Stories/StoriesComponent.js"></script>
-  <script src="src/components/Polls/PollComponent.js"></script>
-  <script src="src/components/ThemeStudio/ThemeStudioComponent.js"></script>
-  <script src="src/components/Soundboard/SoundboardComponent.js"></script>
-  <script src="src/components/Calls/CallModalComponent.js"></script>
 </body>
 </html>
