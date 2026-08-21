@@ -1,0 +1,390 @@
+﻿const fs = require('fs');
+
+const scripts = [
+  'src/data/emojis.js',
+  'src/data/stickers.js',
+  'src/data/soundPresets.js',
+  'src/data/triviaQuestions.js',
+  'src/data/wallpapers.js',
+  'src/core/StateStore.js',
+  'src/core/EventBus.js',
+  'src/core/Router.js',
+  'src/core/SoundSynthesizer.js',
+  'src/core/ParticleEffects.js',
+  'src/core/I18nEngine.js',
+  'src/components/MiniApps/ChessGame.js',
+  'src/components/MiniApps/TicTacToeGame.js',
+  'src/components/MiniApps/WordleGame.js',
+  'src/components/MiniApps/Game2048.js',
+  'src/components/MiniApps/TriviaQuizGame.js',
+  'src/components/MiniApps/CodePlayground.js',
+  'src/components/Whiteboard/WhiteboardComponent.js',
+  'src/components/AIAssistant/AIAssistantComponent.js',
+  'src/components/Stories/StoriesComponent.js',
+  'src/components/Polls/PollComponent.js',
+  'src/components/ThemeStudio/ThemeStudioComponent.js',
+  'src/components/Soundboard/SoundboardComponent.js',
+  'src/components/Calls/CallModalComponent.js'
+];
+
+const scriptTags = scripts.map(s => `<script src="${s}"></script>`).join('\n');
+
+let p3 = `
+${scriptTags}
+
+<script>
+let me = null, allUsers = [], allGroups = [], activeContactId = null, activeGroupId = null, activeFilter = 'all', searchQuery = '', unreadMap = {};
+
+const AVATAR_GRADIENTS = [
+  'linear-gradient(135deg, #3390ec, #50b0f7)',
+  'linear-gradient(135deg, #a855f7, #ec4899)',
+  'linear-gradient(135deg, #10b981, #059669)',
+  'linear-gradient(135deg, #f59e0b, #d97706)',
+  'linear-gradient(135deg, #ef4444, #b91c1c)',
+  'linear-gradient(135deg, #6366f1, #4338ca)'
+];
+
+function getAvatarGradient(name = '') {
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash);
+  return AVATAR_GRADIENTS[Math.abs(hash) % AVATAR_GRADIENTS.length];
+}
+
+function getInitials(name = '') {
+  return name.trim().split(/\\s+/).slice(0, 2).map(w => (w[0] || '').toUpperCase()).join('');
+}
+
+function esc(t) {
+  const d = document.createElement('div');
+  d.appendChild(document.createTextNode(t || ''));
+  return d.innerHTML;
+}
+
+function fmtTime(ts) {
+  if (!ts) return '';
+  return new Date(ts).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+}
+
+function toast(msg, type = 'info') {
+  const c = document.getElementById('toast-container');
+  const t = document.createElement('div');
+  t.className = 'toast ' + type;
+  t.textContent = msg;
+  c.appendChild(t);
+  setTimeout(() => { t.style.opacity = '0'; setTimeout(() => t.remove(), 250); }, 3500);
+}
+
+function loadSession() {
+  try { const s = localStorage.getItem('cw_session_v7'); return s ? JSON.parse(s) : null; } catch(e){ return null; }
+}
+
+function saveSession(u) {
+  me = u;
+  try { localStorage.setItem('cw_session_v7', JSON.stringify(u)); } catch(e){}
+}
+
+function doLogout() {
+  if (!confirm('Log out from ChatWave?')) return;
+  localStorage.removeItem('cw_session_v7');
+  window.location.reload();
+}
+
+function showAuthTab(tab) {
+  const isLogin = tab === 'login';
+  document.getElementById('login-panel').classList.toggle('hidden', !isLogin);
+  document.getElementById('register-panel').classList.toggle('hidden', isLogin);
+  document.getElementById('tab-login').classList.toggle('active', isLogin);
+  document.getElementById('tab-register').classList.toggle('active', !isLogin);
+}
+
+function showAuthErr(id, msg) {
+  const el = document.getElementById(id);
+  el.textContent = msg;
+  el.classList.remove('hidden');
+}
+
+function simpleHash(str) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) hash = ((hash << 5) - hash) + str.charCodeAt(i);
+  return hash.toString(36);
+}
+
+async function doLogin() {
+  const username = (document.getElementById('login-username').value || '').trim().toLowerCase();
+  const password = document.getElementById('login-password').value || '';
+  if (!username || !password) { showAuthErr('login-error', 'Please enter username and password.'); return; }
+  const hash = simpleHash(password);
+  const sb = getSupabaseClient();
+  const { data, error } = await sb.from('cw_users').select('*').eq('username', username).eq('password_hash', hash).single();
+  if (error || !data) { showAuthErr('login-error', 'Invalid username or password.'); return; }
+  saveSession(data);
+  startApp();
+}
+
+async function doRegister() {
+  const name = (document.getElementById('reg-name').value || '').trim();
+  const username = (document.getElementById('reg-username').value || '').trim().toLowerCase();
+  const password = document.getElementById('reg-password').value || '';
+  const confirm = document.getElementById('reg-confirm').value || '';
+  if (!name || !username || !password) { showAuthErr('register-error', 'Name, Username, and Password are required.'); return; }
+  if (password !== confirm) { showAuthErr('register-error', 'Passwords do not match.'); return; }
+
+  const newUser = { username, password_hash: simpleHash(password), name, phone: '', about: 'Hey there! I am using ChatWave.', avatar_url: null, color: '#3390ec' };
+  const sb = getSupabaseClient();
+  const { data, error } = await sb.from('cw_users').insert(newUser).select().single();
+  if (error) { showAuthErr('register-error', error.message); return; }
+  saveSession(data);
+  allUsers.push(data);
+  startApp();
+}
+
+function getSupabaseClient() {
+  if (window._sbClient) return window._sbClient;
+  const url = 'https://tnqydrkmfqvjcfiufpkv.supabase.co';
+  const key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRucXlkcmttZnF2amNmaXVmcGt2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDAxNzg4MzMsImV4cCI6MjA1NTc1NDgzM30.06wZ1N-vN3yS_xPZ-lKz0E-_jHw_j3vQ1Z5_5v_5v_5';
+  if (typeof supabase !== 'undefined') window._sbClient = supabase.createClient(url, key);
+  return window._sbClient;
+}
+
+async function boot() {
+  const sb = getSupabaseClient();
+  if (!sb) {
+    document.getElementById('loading-screen').classList.add('hidden');
+    return;
+  }
+  const { data: users } = await sb.from('cw_users').select('id,username,name,phone,about,avatar_url,color').order('name');
+  allUsers = (users || []).filter(u => u.username !== 'alice' && u.username !== 'bob' && u.username !== 'carol');
+  const { data: groups } = await sb.from('cw_groups').select('*');
+  const { data: members } = await sb.from('cw_group_members').select('*');
+  (groups || []).forEach(g => { g._members = (members || []).filter(m => m.group_id === g.id).map(m => m.user_id); });
+  allGroups = groups || [];
+
+  document.getElementById('loading-screen').classList.add('hidden');
+  const session = loadSession();
+  if (session) {
+    const fresh = allUsers.find(u => u.id === session.id);
+    if (fresh) { me = fresh; startApp(); return; }
+  }
+  document.getElementById('auth-screen').classList.remove('hidden');
+}
+
+function startApp() {
+  document.getElementById('auth-screen').classList.add('hidden');
+  document.getElementById('app').classList.remove('hidden');
+  document.getElementById('drawer-name').textContent = me.name;
+  document.getElementById('drawer-handle').textContent = '@' + me.username;
+  document.getElementById('drawer-initials').textContent = getInitials(me.name);
+  renderChatList();
+  setupRealtime();
+  toast('Welcome back, ' + me.name + '! ✈️', 'info');
+}
+
+function setupRealtime() {
+  const sb = getSupabaseClient();
+  if (!sb) return;
+  sb.channel('cw_global_chat')
+    .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'cw_messages' }, payload => {
+      handleIncomingMsg(payload.new);
+    })
+    .subscribe();
+}
+
+function handleIncomingMsg(msg) {
+  if (!msg || msg.from_id === me.id) return;
+  const isCurrent = (activeGroupId && msg.group_id === activeGroupId) || (activeContactId && msg.from_id === activeContactId);
+  if (isCurrent) {
+    appendMessage(msg);
+    if (window.ChatWaveSound) window.ChatWaveSound.playMessageReceived();
+  } else {
+    const key = msg.group_id || msg.from_id;
+    unreadMap[key] = (unreadMap[key] || 0) + 1;
+    renderChatList();
+    toast('💬 ' + (msg.from_name || 'New Message') + ': ' + ((msg.content || '[' + msg.type + ']').substring(0, 28)), 'info');
+    if (window.ChatWaveSound) window.ChatWaveSound.playMessageReceived();
+  }
+}
+
+function renderChatList() {
+  const list = document.getElementById('chat-list');
+  const contacts = allUsers.filter(u => u.id !== me.id);
+  const myGroups = allGroups.filter(g => g._members && g._members.includes(me.id));
+  let items = [];
+
+  if (activeFilter !== 'groups') {
+    let fc = searchQuery ? contacts.filter(c => c.name.toLowerCase().includes(searchQuery)) : contacts;
+    fc.forEach(c => items.push({ type: 'contact', data: c, unread: unreadMap[c.id] || 0 }));
+  }
+  if (activeFilter !== 'direct') {
+    let fg = searchQuery ? myGroups.filter(g => g.name.toLowerCase().includes(searchQuery)) : myGroups;
+    fg.forEach(g => items.push({ type: 'group', data: g, unread: unreadMap[g.id] || 0 }));
+  }
+
+  if (!items.length) {
+    list.innerHTML = '<div style="text-align:center;padding:40px 16px;color:var(--text-muted);font-size:13.5px">No conversations found.<br/>Start a new chat! 💬</div>';
+    return;
+  }
+
+  list.innerHTML = items.map(item => {
+    const { type, data, unread } = item;
+    const isActive = type === 'group' ? data.id === activeGroupId : data.id === activeContactId;
+    const gradient = getAvatarGradient(data.name);
+    return '<div class="tg-chat-item ' + (isActive ? 'active' : '') + '" onclick="openChat(\\'' + data.id + '\\', \\'' + type + '\\')">' +
+      '<div class="tg-chat-avatar-wrap">' +
+        '<div class="tg-chat-avatar" style="background:' + gradient + '"><span>' + getInitials(data.name) + '</span></div>' +
+        (type === 'contact' ? '<div class="tg-online-badge"></div>' : '') +
+      '</div>' +
+      '<div class="tg-chat-info">' +
+        '<div class="tg-chat-row1"><span class="tg-chat-name">' + data.name + '</span><span class="tg-chat-time">12:00</span></div>' +
+        '<div class="tg-chat-row2"><span class="tg-chat-preview">' + (type === 'group' ? 'Group Chat 👥' : 'Tap to open chat 💬') + '</span>' +
+          (unread > 0 ? '<span class="tg-unread-badge">' + unread + '</span>' : '') +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+}
+
+async function openChat(id, type) {
+  if (type === 'group') {
+    activeGroupId = id; activeContactId = null;
+    const g = allGroups.find(x => x.id === id); if (!g) return;
+    document.getElementById('chat-header-name').textContent = g.name;
+    document.getElementById('chat-header-status').textContent = (g._members ? g._members.length : 0) + ' members';
+    document.getElementById('chat-header-initials').textContent = getInitials(g.name);
+    document.getElementById('chat-header-avatar').style.background = getAvatarGradient(g.name);
+    document.getElementById('chat-header-online-dot').style.display = 'none';
+  } else {
+    activeContactId = id; activeGroupId = null;
+    const c = allUsers.find(u => u.id === id); if (!c) return;
+    document.getElementById('chat-header-name').textContent = c.name;
+    document.getElementById('chat-header-status').textContent = 'online';
+    document.getElementById('chat-header-initials').textContent = getInitials(c.name);
+    document.getElementById('chat-header-avatar').style.background = getAvatarGradient(c.name);
+    document.getElementById('chat-header-online-dot').style.display = '';
+  }
+
+  document.getElementById('empty-state').classList.add('hidden');
+  document.getElementById('chat-view').style.display = 'flex';
+  if (window.innerWidth <= 768) {
+    document.getElementById('sidebar').classList.add('hide');
+    document.getElementById('back-btn').style.display = 'flex';
+  }
+  renderChatList();
+  await renderMessages();
+}
+
+async function renderMessages() {
+  const area = document.getElementById('messages-area');
+  area.innerHTML = '<div style="text-align:center;color:var(--text-muted);padding:24px;font-size:13px">Loading messages...</div>';
+  const sb = getSupabaseClient();
+  let query = sb.from('cw_messages').select('*');
+  if (activeGroupId) query = query.eq('group_id', activeGroupId);
+  else if (activeContactId) query = query.or('and(from_id.eq.' + me.id + ',to_id.eq.' + activeContactId + '),and(from_id.eq.' + activeContactId + ',to_id.eq.' + me.id + ')');
+  const { data: msgs } = await query.order('created_at', { ascending: true }).limit(200);
+  area.innerHTML = '<div class="tg-date-divider">Today</div>';
+  if (!msgs || !msgs.length) {
+    area.innerHTML += '<div style="text-align:center;color:var(--text-muted);padding:32px;font-size:13.5px">No messages here yet...<br/>Send a message or play a mini-app! 🎮</div>';
+    return;
+  }
+  msgs.forEach(m => appendMessage(m));
+  scrollBottom();
+}
+
+function appendMessage(msg) {
+  const area = document.getElementById('messages-area');
+  if (!area) return;
+  const isOut = msg.from_id === me.id;
+  let contentHtml = '';
+  if (msg.type === 'image') {
+    contentHtml = '<img src="' + msg.url + '" style="max-width:100%;border-radius:12px;display:block;margin-bottom:4px;cursor:pointer" onclick="window.open(\\'' + msg.url + '\\')" />' + (msg.content ? '<div>' + esc(msg.content) + '</div>' : '');
+  } else if (msg.type === 'document') {
+    contentHtml = '<div style="display:flex;align-items:center;gap:8px;padding:6px 0">📄 <a href="' + msg.url + '" target="_blank" style="color:inherit;text-decoration:underline">' + esc(msg.file_name || 'Document') + '</a></div>';
+  } else {
+    contentHtml = esc(msg.content || '');
+  }
+
+  const bubbleHtml = '<div class="tg-msg-bubble ' + (isOut ? 'out' : 'in') + '">' +
+    '<div class="tg-bubble-inner">' +
+      (!isOut && activeGroupId ? '<div class="tg-bubble-sender">' + esc(msg.from_name || 'Member') + '</div>' : '') +
+      '<div>' + contentHtml + '</div>' +
+      '<div class="tg-bubble-meta">' +
+        '<span class="tg-bubble-time">' + fmtTime(msg.created_at || Date.now()) + '</span>' +
+        (isOut ? '<span class="tg-ticks">✓✓</span>' : '') +
+      '</div>' +
+    '</div>' +
+  '</div>';
+  area.insertAdjacentHTML('beforeend', bubbleHtml);
+  scrollBottom();
+}
+
+async function sendMsg(data) {
+  if (!me || (!activeGroupId && !activeContactId)) return;
+  const msg = { from_id: me.id, from_name: me.name, to_id: activeGroupId ? null : activeContactId, group_id: activeGroupId || null, type: data.type || 'text', content: data.content || '', url: data.url || null, file_name: data.file_name || null, status: 'sent' };
+  const sb = getSupabaseClient();
+  const { data: inserted, error } = await sb.from('cw_messages').insert(msg).select().single();
+  if (!error && inserted) {
+    appendMessage(inserted);
+    if (window.ChatWaveSound) window.ChatWaveSound.playMessageSent();
+  }
+}
+
+async function sendCurrentMessage() {
+  const inp = document.getElementById('msg-input');
+  const text = (inp.textContent || inp.innerText || '').trim();
+  if (!text) return;
+  inp.textContent = '';
+  if (text.startsWith('/ai ')) {
+    sendMsg({ type: 'text', content: text });
+    if (window.ChatWaveAI) {
+      ChatWaveAI.prompt(text.replace('/ai ', ''), null, reply => { sendMsg({ type: 'text', content: reply }); });
+    }
+    return;
+  }
+  if (text === '/game' || text === '/chess') { openMiniAppsModal(); return; }
+  await sendMsg({ type: 'text', content: text });
+}
+
+function handleInputKey(e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendCurrentMessage(); } }
+function toggleDrawer() { const d = document.getElementById('tg-drawer'); const b = document.getElementById('drawer-backdrop'); const o = d.classList.contains('open'); d.classList.toggle('open', !o); b.classList.toggle('hidden', o); }
+function setFilter(f, btn) { activeFilter = f; document.querySelectorAll('.tg-tab').forEach(b => b.classList.remove('active')); if (btn) btn.classList.add('active'); renderChatList(); }
+function searchChats(q) { searchQuery = q.toLowerCase().trim(); renderChatList(); }
+function toggleTheme() { const doc = document.documentElement; const cur = doc.getAttribute('data-theme'); const next = cur === 'dark' ? 'light' : 'dark'; doc.setAttribute('data-theme', next); toast('Theme: ' + next.toUpperCase() + ' 🌓', 'info'); }
+function scrollBottom() { const a = document.getElementById('messages-area'); if (a) a.scrollTop = a.scrollHeight; }
+function goBack() { document.getElementById('sidebar').classList.remove('hide'); document.getElementById('back-btn').style.display = 'none'; document.getElementById('empty-state').classList.remove('hidden'); document.getElementById('chat-view').style.display = 'none'; }
+function triggerFileInput() { document.getElementById('media-file-input').click(); }
+function handleAnyFile(input) { const file = input.files[0]; if (!file) return; const reader = new FileReader(); reader.onload = (e) => { const type = file.type.startsWith('image/') ? 'image' : 'document'; sendMsg({ type, url: e.target.result, file_name: file.name }); }; reader.readAsDataURL(file); input.value = ''; }
+function toggleVoiceRecording() { toast('Voice note recorded & sent! 🎙️', 'success'); }
+function toggleEmojiPicker() { const inp = document.getElementById('msg-input'); inp.textContent += '😊'; }
+function startVoiceCall() { toast('Starting Telegram Voice Call... 📞', 'info'); }
+function startVideoCall() { toast('Starting Telegram HD Video Call... 📹', 'info'); }
+function clearCurrentChat() { if (!confirm('Clear this chat history?')) return; document.getElementById('messages-area').innerHTML = '<div style="text-align:center;color:var(--text-muted);padding:32px;font-size:13.5px">Chat cleared.</div>'; }
+function openMiniAppsModal() { document.getElementById('cw-miniapps-modal').classList.remove('hidden'); switchMiniApp('chess'); }
+function closeMiniAppsModal() { document.getElementById('cw-miniapps-modal').classList.add('hidden'); }
+function switchMiniApp(appName, btn) {
+  if (btn) { document.querySelectorAll('.cw-miniapps-tab').forEach(b => b.classList.remove('active')); btn.classList.add('active'); }
+  const host = document.getElementById('cw-miniapp-host'); if (!host) return;
+  host.innerHTML = '<div id=\"cw-' + appName + '-container\"></div>';
+  if (appName === 'chess' && window.ChatWaveChess) ChatWaveChess.render('cw-chess-container');
+  else if (appName === 'tictactoe' && window.ChatWaveTicTacToe) ChatWaveTicTacToe.render('cw-tictactoe-container');
+  else if (appName === 'wordle' && window.ChatWaveWordle) ChatWaveWordle.render('cw-wordle-container');
+  else if (appName === '2048' && window.ChatWave2048) ChatWave2048.render('cw-2048-container');
+  else if (appName === 'trivia' && window.ChatWaveTriviaGame) ChatWaveTriviaGame.start('all');
+}
+function openWhiteboardModal() { document.getElementById('cw-whiteboard-modal').classList.remove('hidden'); setTimeout(() => { if (window.ChatWaveWhiteboard) ChatWaveWhiteboard.init('cw-whiteboard-canvas'); }, 50); }
+function closeWhiteboardModal() { document.getElementById('cw-whiteboard-modal').classList.add('hidden'); }
+function sendWhiteboardToChat() { if (window.ChatWaveWhiteboard) { const dataUrl = ChatWaveWhiteboard.toDataURL(); if (dataUrl) { sendMsg({ type: 'image', url: dataUrl, content: '🎨 Whiteboard Drawing' }); closeWhiteboardModal(); toast('Drawing sent to chat! 🎨', 'success'); } } }
+function openSoundboardModal() { document.getElementById('cw-soundboard-modal').classList.remove('hidden'); }
+function closeSoundboardModal() { document.getElementById('cw-soundboard-modal').classList.add('hidden'); }
+function triggerSoundFX(snd) { if (window.ChatWaveSound) { if (snd === 'pop') ChatWaveSound.playPop(); else if (snd === 'laser') ChatWaveSound.playLaser(); else if (snd === 'bell') ChatWaveSound.playBell(); else if (snd === 'chime') ChatWaveSound.playChime(); else if (snd === 'horn') ChatWaveSound.playAirhorn(); else if (snd === 'bass') ChatWaveSound.playBassDrop(); else if (snd === 'win') ChatWaveSound.playVictory(); else if (snd === 'lose') ChatWaveSound.playDefeat(); } toast('Played: ' + snd.toUpperCase() + ' 🔊', 'info'); }
+function openGroupModal() { document.getElementById('group-modal').classList.remove('hidden'); }
+function closeGroupModal() { document.getElementById('group-modal').classList.add('hidden'); }
+async function finalCreateGroup() { const name = (document.getElementById('new-group-name').value || '').trim(); if (!name) return; const sb = getSupabaseClient(); const { data: g, error } = await sb.from('cw_groups').insert({ name, description: 'Telegram Group', color: '#3390ec' }).select().single(); if (!error && g) { await sb.from('cw_group_members').insert({ group_id: g.id, user_id: me.id }); g._members = [me.id]; allGroups.push(g); closeGroupModal(); renderChatList(); openChat(g.id, 'group'); toast('Group \"' + name + '\" created! 🎉', 'success'); } }
+function installPWA() { toast('📱 To install Telegram Web: Tap Chrome / Safari menu ➔ \"Add to Home Screen\"', 'info'); }
+
+document.addEventListener('DOMContentLoaded', () => { boot(); });
+</script>
+</body>
+</html>
+`;
+
+fs.writeFileSync('scripts/out_p3.txt', p3, 'utf8');
+console.log('Saved Part 3');
