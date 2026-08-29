@@ -10,6 +10,7 @@ const e2eeTest = require('./unit/E2EEncryption.test');
 const webrtcTest = require('./unit/WebRTCChannel.test');
 const whiteboardTest = require('./unit/WhiteboardState.test');
 const ephemeralAndPollingTest = require('./unit/EphemeralAndPolling.test');
+const telemetryTest = require('./unit/Telemetry.test');
 
 console.log('====================================================');
 console.log('  🚀 Running ChatWave 3.0 Automated Test Suites');
@@ -25,9 +26,10 @@ try {
   webrtcTest();
   whiteboardTest();
   ephemeralAndPollingTest();
+  telemetryTest();
 
   console.log('====================================================');
-  console.log('  ✅ ALL 9 TEST SUITES EXECUTED & PASSED (100%)');
+  console.log('  ✅ ALL 10 TEST SUITES EXECUTED & PASSED (100%)');
   console.log('====================================================');
 } catch (err) {
   console.error('❌ Test suite failed:', err);
