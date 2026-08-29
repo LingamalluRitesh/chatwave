@@ -3,9 +3,8 @@
  * Supports single/multiple choice options, voter fingerprint deduplication, and live tally statistics.
  */
 
-export class RoomPollingEngine {
+class RoomPollingEngine {
   constructor() {
-    // pollId -> { id, roomId, question, options: [{ id, text, votes }], voters: Set, isClosed }
     this.polls = new Map();
   }
 
@@ -71,3 +70,5 @@ export class RoomPollingEngine {
     return this.getPollResults(pollId);
   }
 }
+
+module.exports = { RoomPollingEngine };
