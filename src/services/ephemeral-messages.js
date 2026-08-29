@@ -3,9 +3,8 @@
  * Manages message TTL lifecycles, read receipt trigger countdowns, and automatic memory cleanup.
  */
 
-export class EphemeralMessageManager {
+class EphemeralMessageManager {
   constructor() {
-    // messageId -> { id, roomId, content, createdAt, ttlSec, readAt, isBurned }
     this.messages = new Map();
   }
 
@@ -38,7 +37,6 @@ export class EphemeralMessageManager {
     if (!msg) return true;
     if (msg.isBurned) return true;
 
-    // Expire if read TTL elapsed or created TTL elapsed
     if (msg.readAt && now >= msg.readAt + msg.ttlSec * 1000) {
       return true;
     }
@@ -61,3 +59,5 @@ export class EphemeralMessageManager {
     return purgedCount;
   }
 }
+
+module.exports = { EphemeralMessageManager };

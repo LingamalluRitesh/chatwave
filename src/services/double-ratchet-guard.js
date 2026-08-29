@@ -3,9 +3,9 @@
  * Simulates Diffie-Hellman symmetric chain advancement and HMAC key generation for end-to-end messaging.
  */
 
-import crypto from "crypto";
+const crypto = require("crypto");
 
-export class DoubleRatchetSessionGuard {
+class DoubleRatchetSessionGuard {
   constructor(initialSharedSecret = "chatwave_initial_root_secret") {
     this.rootKey = crypto.createHash("sha256").update(initialSharedSecret).digest();
     this.sendChainKey = crypto.createHmac("sha256", this.rootKey).update("SEND_CHAIN_INIT").digest();
@@ -16,13 +16,11 @@ export class DoubleRatchetSessionGuard {
 
   advanceSendChain() {
     this.sendMessageSequence += 1;
-    // Derive message encryption key: HMAC(sendChainKey, "MESSAGE_KEY_" + seq)
     const messageKey = crypto
       .createHmac("sha256", this.sendChainKey)
       .update(`MESSAGE_KEY_${this.sendMessageSequence}`)
       .digest("hex");
 
-    // Advance send chain key (ratchet forward): HMAC(sendChainKey, "NEXT_CHAIN_KEY")
     this.sendChainKey = crypto
       .createHmac("sha256", this.sendChainKey)
       .update("NEXT_CHAIN_KEY")
@@ -58,10 +56,11 @@ export class DoubleRatchetSessionGuard {
       .update(newDhSecret)
       .digest();
 
-    // Re-initialize chains from rotated root
     this.sendChainKey = crypto.createHmac("sha256", this.rootKey).update("SEND_CHAIN_ROTATED").digest();
     this.recvChainKey = crypto.createHmac("sha256", this.rootKey).update("RECV_CHAIN_ROTATED").digest();
     this.sendMessageSequence = 0;
     this.recvMessageSequence = 0;
   }
 }
+
+module.exports = { DoubleRatchetSessionGuard };
